@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Real0 - Blog</title>
+  <icon>http://example.com/icon.png</icon>
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2021-03-13T13:34:04.087Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>Real0</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>jQuery 学习笔记</title>
+    <link href="http://example.com/2021/03/06/Jquery/"/>
+    <id>http://example.com/2021/03/06/Jquery/</id>
+    <published>2021-03-06T11:36:00.000Z</published>
+    <updated>2021-03-13T13:34:04.087Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;注：本文根据尚硅谷视频教程整理而成，单纯为了加深自己的印象，文中代码参考自jQuery API，如有侵权，请联系我进行删除。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;尚硅谷视频链接：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="jQuery" scheme="http://example.com/categories/jQuery/"/>
+    
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux常用命令之基本操作</title>
+    <link href="http://example.com/2021/03/01/command/"/>
+    <id>http://example.com/2021/03/01/command/</id>
+    <published>2021-03-01T08:46:00.000Z</published>
+    <updated>2021-03-06T09:33:03.747Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Linux常用命令&quot;&gt;&lt;a href=&quot;#Linux常用命令&quot; class=&quot;headerlink&quot; title=&quot;Linux常用命令&quot;&gt;&lt;/a&gt;Linux常用命令&lt;/h1&gt;&lt;p&gt;最近看了点关于linux的常用命令总结，在这里回顾下&lt;/p&gt;
+&lt;p&gt;Linux是多用户多任务的操作系统，而相比windows操作系统，可以说是“假”的多用户了，它实际上并不支持多个用户在同一时间登录。&lt;/p&gt;
+&lt;h1 id=&quot;Linux命令格式&quot;&gt;&lt;a href=&quot;#Linux命令格式&quot; class=&quot;headerlink&quot; title=&quot;Linux命令格式&quot;&gt;&lt;/a&gt;Linux命令格式&lt;/h1&gt;&lt;hr&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;command  [-options]  [parameter1]  …&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;command: 命令名,相应功能的英文单词或单词的缩写 [-options]：选项,可用来对命令进行控制，也可以省略，[]代表可选 parameter1 …：传给命令的参数：可以是零个一个或多个&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ls 列出当前目录的内容&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;参数解释：&lt;/em&gt;&lt;br&gt;可显示指定目录下所有的子目录与文件，包括隐藏文件（以点（.）开头的文件），如ls -a&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ls -l :&lt;br&gt;以列表方式显示文件的详细信息，包含权限，大小，硬链接数等信息&lt;/li&gt;
+&lt;li&gt;ls -h :与-l同时使用以更人性化方式显示文件信息</summary>
+    
+    
+    
+    <category term="Linux" scheme="http://example.com/categories/Linux/"/>
+    
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>分享一个谷歌浏览器的视频加速插件</title>
+    <link href="http://example.com/2021/02/26/speed/"/>
+    <id>http://example.com/2021/02/26/speed/</id>
+    <published>2021-02-26T08:45:00.000Z</published>
+    <updated>2021-03-06T09:20:26.079Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Video-Speed-Controller&quot;&gt;&lt;a href=&quot;#Video-Speed-Controller&quot; class=&quot;headerlink&quot; title=&quot;Video Speed Controller&quot;&gt;&lt;/a&gt;Video Speed Controller&lt;/h1&gt;&lt;p&gt;平常在我们看一些时间长的课程视频的时候，想快进但是又怕落下什么重要的东西，很是为难，这个插件便完美的解决了这个问题。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Video" scheme="http://example.com/categories/Video/"/>
+    
+    
+    <category term="插件" scheme="http://example.com/tags/%E6%8F%92%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 常用命令之用户和权限管理</title>
+    <link href="http://example.com/2021/02/21/user/"/>
+    <id>http://example.com/2021/02/21/user/</id>
+    <published>2021-02-21T08:43:00.000Z</published>
+    <updated>2021-03-06T09:34:43.413Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;用户、权限管理&quot;&gt;&lt;a href=&quot;#用户、权限管理&quot; class=&quot;headerlink&quot; title=&quot;用户、权限管理&quot;&gt;&lt;/a&gt;用户、权限管理&lt;/h1&gt;&lt;p&gt;用户是Unix/Linux系统工作中重要的一环，用户管理包括用户与组账号的管理。&lt;br&gt;在Unix/Linux系统中，不论是由本机或是远程登录系统，每个系统都必须拥有一个账号，并且对于不同的系统资源拥有不同的使用权限。Unix/Linux系统中的root账号通常用于系统的维护和管理，它对Unix/Linux操作系统的所有部分具有不受限制的访问权限。在Unix/Linux安装的过程中，系统会自动创建许多用户账号，而这些默认的用户就称为“标准用户”。而在大多数版本的Unix/Linux中，都不推荐直接使用root账号登录系统。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;查看当前用户：whoami&lt;br&gt;whoami该命令用户查看当前系统当前账号的用户名。可通过cat /etc/passwd查看系统用户信息。&lt;br&gt; &lt;img src=&quot;https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127135512.png&quot;&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="http://example.com/categories/Linux/"/>
+    
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【学相伴】Nginx最新教程通俗易懂-狂神说</title>
+    <link href="http://example.com/2021/02/16/Nginx/"/>
+    <id>http://example.com/2021/02/16/Nginx/</id>
+    <published>2021-02-16T08:40:00.000Z</published>
+    <updated>2021-03-06T09:23:57.148Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本文转载于:&lt;a href=&quot;https://blog.csdn.net/qq_33369905/article/details/113245513#commentBox&quot;&gt;https://blog.csdn.net/qq_33369905/article/details/113245513#commentBox&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Nginx-学相伴&quot;&gt;&lt;a href=&quot;#Nginx-学相伴&quot; class=&quot;headerlink&quot; title=&quot;Nginx - 学相伴&quot;&gt;&lt;/a&gt;Nginx - 学相伴&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;分享人：秦疆（遇见狂神说） &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;公司产品出现瓶颈？&quot;&gt;&lt;a href=&quot;#公司产品出现瓶颈？&quot; class=&quot;headerlink&quot; title=&quot;公司产品出现瓶颈？&quot;&gt;&lt;/a&gt;公司产品出现瓶颈？&lt;/h2&gt;&lt;p&gt;我们公司项目刚刚上线的时候，并发量小，用户使用的少，所以在低并发的情况下，一个jar包启动应用就够了，然后内部tomcat返回内容给用户。&lt;br&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204165810.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Nginx" scheme="http://example.com/categories/Nginx/"/>
+    
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OneIndex部署，基本OneDrive打造私人云盘</title>
+    <link href="http://example.com/2021/02/11/OneIndex/"/>
+    <id>http://example.com/2021/02/11/OneIndex/</id>
+    <published>2021-02-11T08:37:00.000Z</published>
+    <updated>2021-03-06T09:22:58.158Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;搭建前的准备&quot;&gt;&lt;a href=&quot;#搭建前的准备&quot; class=&quot;headerlink&quot; title=&quot;搭建前的准备&quot;&gt;&lt;/a&gt;搭建前的准备&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;一个域名，可以直接从阿里云域名服务中申请并备案（备案较麻烦），且需要支持HTTPS协议。&lt;/li&gt;
+&lt;li&gt;一台服务器。我是从阿里云租的轻量版的服务器，宝塔面板，专门针对学生的一款服务器，价格还算实惠。不愿意租用服务器的同学也可以用国外的一款免费的&lt;a href=&quot;https://www.freewebhostingarea.com/&quot;&gt;虚拟空间&lt;/a&gt;,由于是免费的，访问速度相对就会慢一些。&lt;/li&gt;
+&lt;li&gt;下载好oneindex的&lt;a href=&quot;https://github.com/Layne666/oneindex&quot;&gt;源码&lt;/a&gt;，（由于作者已经关闭了源码的开放 ，这里用的是基于原版本的魔改版。）&lt;/li&gt;
+&lt;li&gt;世纪互联的账号一个。这里我是直接从某宝买的一个存储容量5t的账号，直接搜世纪互联onedrive就行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;开始搭建&quot;&gt;&lt;a href=&quot;#开始搭建&quot; class=&quot;headerlink&quot; title=&quot;开始搭建&quot;&gt;&lt;/a&gt;开始搭建&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;我们先进入世纪互联的&lt;a href=&quot;https://www.azure.cn/&quot;&gt;官网&lt;/a&gt;,登录之后我们点击这里的查看。&lt;br&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/xxgspeed/images/img/test.png&quot;&gt;&lt;br&gt;然后在左侧的管理栏中点击应用注册。</summary>
+    
+    
+    
+    <category term="OneDrive" scheme="http://example.com/categories/OneDrive/"/>
+    
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows 10 安装Pytorch 0.3.1 (旧版本)教程</title>
+    <link href="http://example.com/2021/02/06/Pytorch/"/>
+    <id>http://example.com/2021/02/06/Pytorch/</id>
+    <published>2021-02-06T08:27:00.000Z</published>
+    <updated>2021-03-06T09:21:25.368Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;Pytorch GPU 0.3.1安装&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;PyTorch 0.3.1实在太老了，无奈项目需要。安装时其他版本都可以，惟独pytorch-0.3.1下载实在太慢，尝试科学上网也不行。于是决定手动下载并安装。&lt;br&gt;首先说明这是基于Anaconda，python3.6，cuda90的安装。首先按照官方链接执行命令，安装其他关联包&lt;/p&gt;
+&lt;p&gt;pytorch-0.3.1包的下载地址，不同版本可能下载文件有区别，请进入目录中自行寻找。&lt;br&gt;&lt;a href=&quot;https://conda.anaconda.org/peterjc123/win-64/pytorch-0.3.1-py36_cuda90_cudnn7he774522_2.tar.bz2&quot;&gt;https://conda.anaconda.org/peterjc123/win-64/pytorch-0.3.1-py36_cuda90_cudnn7he774522_2.tar.bz2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;手动下载后使用如下代码安装（注意修改包的路径）&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;conda install --use-local ‪C:\Users\71983\Desktop\pytorch-0.3.1-py36_cuda90_cudnn7he774522_2.tar.bz2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="Pytorch" scheme="http://example.com/categories/Pytorch/"/>
+    
+    
+    <category term="安装" scheme="http://example.com/tags/%E5%AE%89%E8%A3%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo + Gitee 搭建博客</title>
+    <link href="http://example.com/2021/01/31/Hexo/"/>
+    <id>http://example.com/2021/01/31/Hexo/</id>
+    <published>2021-01-31T08:25:00.000Z</published>
+    <updated>2021-03-06T09:27:39.990Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;大家好，今天给大家介绍下在Gitee上搭建hexo博客。此前我用的是阿里云服务器和Typecho主题模版来搭建博客的， 但是由于各种问题吧（主要是穷。。）就放弃了这种搭建方式，偶然机会了解到了hexo博客，可以免费搭建在gitee上，实在太香了，就换到了gitee下搭建。话不多说，接下来讲下具体搭建步骤和我遇到的好多坑。&lt;/p&gt;
+&lt;h1 id=&quot;搭建前的准备&quot;&gt;&lt;a href=&quot;#搭建前的准备&quot; class=&quot;headerlink&quot; title=&quot;搭建前的准备&quot;&gt;&lt;/a&gt;搭建前的准备&lt;/h1&gt;&lt;p&gt;Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。&lt;br&gt;安装 Hexo 只需几分钟时间，在安装Hexo前，我们的电脑上需要有以下的环境：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Node.js (Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本)&lt;/li&gt;
+&lt;li&gt;Git&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在这里我就不赘述这些的安装步骤了，具体的安装步骤百度即可。我想把主要的篇幅放到hexo的插件上。hexo的&lt;a href=&quot;https://hexo.io/zh-cn/docs/&quot;&gt;官方文档&lt;/a&gt;）&lt;/p&gt;
+&lt;h1 id=&quot;环境搭建&quot;&gt;&lt;a href=&quot;#环境搭建&quot; class=&quot;headerlink&quot; title=&quot;环境搭建&quot;&gt;&lt;/a&gt;环境搭建&lt;/h1&gt;&lt;p&gt;在安装好了上述的两个环境之后，我们就正式进入正题了。为了方便管理项目，我们在磁盘根目录内新建一个文件夹。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Hexo" scheme="http://example.com/categories/Hexo/"/>
+    
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>分享一个现代化文件管理器Files</title>
+    <link href="http://example.com/2021/01/26/Files/"/>
+    <id>http://example.com/2021/01/26/Files/</id>
+    <published>2021-01-26T08:24:00.000Z</published>
+    <updated>2021-03-06T09:28:25.774Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;软件介绍&quot;&gt;&lt;a href=&quot;#软件介绍&quot; class=&quot;headerlink&quot; title=&quot;软件介绍&quot;&gt;&lt;/a&gt;软件介绍&lt;/h1&gt;&lt;p&gt;今天偶然发现了一款看起来还不错的软件，它就是遵循 Fluent 设计语言的 Windows 第三方文件管理工具 Files。&lt;br&gt;这款软件是微软参考Win10文件资源管理器得到的启发，由此开发而来，文件资源管理器在过去的window7和windows10中几乎没有太大的变化。&lt;/p&gt;
+&lt;p&gt;Files作为一个“来自未来”的文件管理器，似乎满足了“未来”的文件管理器应该有的样子，并且拥有相当多的创新点：默认主页和win10之前的文件管理器相似，不同的是他支持多标签页，可以来回切换，在我们操作时候更加方便文件的对比和传输。&lt;img src=&quot;https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210129174447.png&quot;&gt;&lt;br&gt;同时在左下角的设置中也有着非常多的选项供用户选择，自定义主题，小工具，个性化等等。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="管理器" scheme="http://example.com/categories/%E7%AE%A1%E7%90%86%E5%99%A8/"/>
+    
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>分享一个内网穿透工具-cpolar</title>
+    <link href="http://example.com/2021/01/21/cpolar/"/>
+    <id>http://example.com/2021/01/21/cpolar/</id>
+    <published>2021-01-21T08:23:00.000Z</published>
+    <updated>2021-03-06T09:30:52.906Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;内网穿透&quot;&gt;&lt;a href=&quot;#内网穿透&quot; class=&quot;headerlink&quot; title=&quot;内网穿透&quot;&gt;&lt;/a&gt;内网穿透&lt;/h1&gt;&lt;p&gt;首先解释下何为内网穿透，内网穿透，即NAT穿透，网络连接时术语，计算机是局域网内时，外网与内网的计算机节点需要连接通信，有时就会出现不支持内网穿透。就是说映射端口，能让外网的电脑找到处于内网的电脑，提高下载速度。这是官方解释。简单点来说就是把内网Web站点暴露在公网，可以访问，对于测试来说是最好不过得软件了方便实时查看情况。可以这么说，cpolar是Web开发调试的利器工具，它可以把内网的站点变成公网可以访问的站点，大大提高了效率。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="内网穿透" scheme="http://example.com/categories/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+    
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 常用命令之编辑器之神-vim</title>
+    <link href="http://example.com/2021/01/16/vim/"/>
+    <id>http://example.com/2021/01/16/vim/</id>
+    <published>2021-01-16T08:21:00.000Z</published>
+    <updated>2021-03-06T09:16:33.466Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;编辑器之神-vim&quot;&gt;&lt;a href=&quot;#编辑器之神-vim&quot; class=&quot;headerlink&quot; title=&quot;编辑器之神-vim&quot;&gt;&lt;/a&gt;编辑器之神-vim&lt;/h1&gt;&lt;p&gt;Vim是从 vi 发展出来的一个文本编辑器，它在Linux上的地位就仿佛Edit程序在DOS上一样。它可以执行输出、删除、查找、替换、块操作等众多文本操作，而且用户可以根据自己的需要对其进行定制。Vim不是一个排版程序，它不象Word或WPS那样可以对字体、格式、段落等其他属性进行编排，它只是一个文本编辑程序。 Vim没有菜单，只有命令，且命令繁多。&lt;br&gt;Vim有三种基本工作模式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt; 命令模式&lt;/li&gt;
+&lt;li&gt; 文本输入模式&lt;/li&gt;
+&lt;li&gt; 末行模式。&lt;br&gt;模式转换如下图：&lt;br&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128110334.png&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="http://example.com/categories/Linux/"/>
+    
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Fiddler抓包详解</title>
+    <link href="http://example.com/2021/01/11/Fiddler/"/>
+    <id>http://example.com/2021/01/11/Fiddler/</id>
+    <published>2021-01-11T08:19:00.000Z</published>
+    <updated>2021-03-06T09:29:52.709Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Fiddler详解&quot;&gt;&lt;a href=&quot;#Fiddler详解&quot; class=&quot;headerlink&quot; title=&quot;Fiddler详解&quot;&gt;&lt;/a&gt;Fiddler详解&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;首先说下何为抓包，抓包，简单来说就是抓取数据包，抓包（packet capture）就是将网络传输发送与接收的数据包进行截获、重发、编辑、转存等操作，也用来检查网络安全。抓包也经常被用来进行数据截取等（官方解释），大概就是抓取所需数据包来做一些特定的分析，比如说有的爬虫需要抓包分析。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Fiddler是一个http协议调试代理工具，它能够记录并检查所有你的电脑和互联网之间的HTTP或HTTPS通讯，设置断点，查看所有的进出Fiddler的数据。 Fiddler 要比其他的网络调试器要更加简单，因为它不仅仅暴露HTTP通讯还提供了一个用户友好的格式。同时也是目前最常用的抓包工具之一 。它能够记录客户端和服务器之间的所有请求,可以针对特定的请求,分析请求数据等功能，十分强大。&lt;br&gt;接下来直接进入正题，我们首先需要去&lt;a href=&quot;https://www.telerik.com/fiddler&quot;&gt;官网&lt;/a&gt;下载Fiddler安装包。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;安装完成之后打开就可以看到这样一个界面&lt;img src=&quot;https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127134817.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="抓包" scheme="http://example.com/categories/%E6%8A%93%E5%8C%85/"/>
+    
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python爬虫实战-爬取小说</title>
+    <link href="http://example.com/2021/01/06/spider/"/>
+    <id>http://example.com/2021/01/06/spider/</id>
+    <published>2021-01-06T08:06:00.000Z</published>
+    <updated>2021-03-06T09:18:15.385Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;模块的安装&quot;&gt;&lt;a href=&quot;#模块的安装&quot; class=&quot;headerlink&quot; title=&quot;模块的安装&quot;&gt;&lt;/a&gt;模块的安装&lt;/h1&gt;&lt;p&gt;首先这里我们用到了requests库和BeautifulSoup库，我们可以通过pip命令来安装&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;requests库的安装&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pip install requests&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;BeautifulSoup库的安装&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pip install beautifulsoup4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;之后我们通过requests中的get方法获得网页的源代码&lt;/p&gt;
+&lt;h1 id=&quot;代码编写&quot;&gt;&lt;a href=&quot;#代码编写&quot; class=&quot;headerlink&quot; title=&quot;代码编写&quot;&gt;&lt;/a&gt;代码编写&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="Python" scheme="http://example.com/categories/Python/"/>
+    
+    
+    <category term="爬虫" scheme="http://example.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>分享一个图形数据库Neo4j</title>
+    <link href="http://example.com/2021/01/01/Neo4j/"/>
+    <id>http://example.com/2021/01/01/Neo4j/</id>
+    <published>2021-01-01T08:02:00.000Z</published>
+    <updated>2021-03-06T09:25:51.479Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h1&gt;&lt;p&gt;Neo4j是一个高性能的,NOSQL图形数据库，它将结构化数据存储在网络上而不是表中。它是目前最流行的图形数据库，支持完整的事务，在属性图中，图是由顶点（Vertex），边（Edge）和属性（Property）组成的，Neo4j创建的图是用顶点和边构建一个有向图，其查询语言为cypher。&lt;/p&gt;
+&lt;p&gt;Neo4j是由Java和Scala写成的一个NoSql数据库（非关系型的数据库），所以决定了此数据库是依托于jvm虚拟机上的，它专门用于网络图的存储，如思维导图等。&lt;br&gt;  与MySql相比，Neo4j有以下优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据库操作更快。对比之下，当数据量较大时，在MySql中存储的话需要许多表，并且表之间联系较多。&lt;/li&gt;
+&lt;li&gt;数据更直观，相应的SQL语句也更好写（Neo4j使用Cypher语言，与传统SQL语句有很大不同）。</summary>
+    
+    
+    
+    <category term="数据库" scheme="http://example.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown基本语法</title>
+    <link href="http://example.com/2020/12/26/markdown/"/>
+    <id>http://example.com/2020/12/26/markdown/</id>
+    <published>2020-12-26T07:15:00.000Z</published>
+    <updated>2021-03-06T09:02:23.006Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;一-Markdown介绍&quot;&gt;&lt;a href=&quot;#一-Markdown介绍&quot; class=&quot;headerlink&quot; title=&quot;一.Markdown介绍&quot;&gt;&lt;/a&gt;一.Markdown介绍&lt;/h1&gt;&lt;p&gt;​    今天给大家介绍一下Markdown及其基本语法。Markdown是一种&lt;a href=&quot;https://baike.baidu.com/item/%E8%BD%BB%E9%87%8F%E7%BA%A7%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/52671915&quot;&gt;轻量级标记语言&lt;/a&gt;。 它允许人们使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML（或者HTML）文档。这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。&lt;/p&gt;
+&lt;p&gt;​    由于Markdown的轻量化、易读易写特性，并且对于图片，图表、数学式都有支持，目前许多网站都广泛使用Markdown来撰写帮助文档或是用于论坛上发表消息。 如&lt;a href=&quot;https://baike.baidu.com/item/GitHub/10145341&quot;&gt;GitHub&lt;/a&gt;、&lt;a href=&quot;https://baike.baidu.com/item/Reddit/1272010&quot;&gt;Reddit&lt;/a&gt;、&lt;a href=&quot;https://baike.baidu.com/item/Diaspora/10726893&quot;&gt;Diaspora&lt;/a&gt;、[Stack Exchange](&lt;a href=&quot;https://baike.baidu.com/item/Stack&quot;&gt;https://baike.baidu.com/item/Stack&lt;/a&gt; Exchange/13777796)、&lt;a href=&quot;https://baike.baidu.com/item/OpenStreetMap/3171606&quot;&gt;OpenStreetMap&lt;/a&gt; 、&lt;a href=&quot;https://baike.baidu.com/item/SourceForge/6562141&quot;&gt;SourceForge&lt;/a&gt;、&lt;a href=&quot;https://baike.baidu.com/item/%E7%AE%80%E4%B9%A6/5782216&quot;&gt;简书&lt;/a&gt;等，甚至还能被使用来撰写&lt;a href=&quot;https://baike.baidu.com/item/%E7%94%B5%E5%AD%90%E4%B9%A6/346054&quot;&gt;电子书&lt;/a&gt;。&lt;/p&gt;
+&lt;h1 id=&quot;二-Markdown基本语法&quot;&gt;&lt;a href=&quot;#二-Markdown基本语法&quot; class=&quot;headerlink&quot; title=&quot;二.Markdown基本语法&quot;&gt;&lt;/a&gt;二.Markdown基本语法&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="Markdown" scheme="http://example.com/categories/Markdown/"/>
+    
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于JavaMail库实现邮件的简单传送</title>
+    <link href="http://example.com/2020/12/15/javamail/"/>
+    <id>http://example.com/2020/12/15/javamail/</id>
+    <published>2020-12-15T07:54:00.000Z</published>
+    <updated>2021-03-06T09:10:40.211Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;常用的电子邮件协议&quot;&gt;&lt;a href=&quot;#常用的电子邮件协议&quot; class=&quot;headerlink&quot; title=&quot;常用的电子邮件协议&quot;&gt;&lt;/a&gt;常用的电子邮件协议&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;SMTP（Simple Mail Transfer Protocol-简单邮件传输协议）：发送邮件时使用，传输系统之间的邮件信息，端口号25&lt;/li&gt;
+&lt;li&gt;POP3（Post Office Protocol 3-邮局协议版本3）：主要用于支持使用客户端远程管理在服务器上的电子邮件，支持“离线”（如本地删除邮件但服务器不会被删除）邮件处理，收取离线邮件，客户端远程管理电子邮件，端口号110&lt;/li&gt;
+&lt;li&gt;IMAP（Internet Mail Access Protocol-交互邮件访问协议）：从邮件服务器上获取邮件的信息，同步（本地与服务器的操作时同步）收取邮件，端口号143&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;Jar包下载&quot;&gt;&lt;a href=&quot;#Jar包下载&quot; class=&quot;headerlink&quot; title=&quot;Jar包下载&quot;&gt;&lt;/a&gt;Jar包下载&lt;/h1&gt;&lt;p&gt;因为标准的JDK中并没有包含javamail库，需要自己去官网下载，从JavaMail 1.5.0开始，可以从GitHub上的&lt;a href=&quot;https://javaee.github.io/javamail/&quot;&gt;JavaMail项目页面&lt;/a&gt;获得最新的JavaMail版本，我们只需要下载javamail的jar包即可。&lt;br&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127131322.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="http://example.com/categories/Java/"/>
+    
+    
+    <category term="smtp" scheme="http://example.com/tags/smtp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>分享一个高清壁纸的网站</title>
+    <link href="http://example.com/2020/12/04/photo/"/>
+    <id>http://example.com/2020/12/04/photo/</id>
+    <published>2020-12-04T07:35:00.000Z</published>
+    <updated>2021-03-06T09:08:52.834Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;一个高清壁纸网站的食用方法&quot;&gt;&lt;a href=&quot;#一个高清壁纸网站的食用方法&quot; class=&quot;headerlink&quot; title=&quot;一个高清壁纸网站的食用方法&quot;&gt;&lt;/a&gt;一个高清壁纸网站的食用方法&lt;/h1&gt;&lt;p&gt;超过3000万张免费高清图片 &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://wallhaven.cc/&quot;&gt;链接如下&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;最后附上几张高清大图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127130635.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="壁纸" scheme="http://example.com/categories/%E5%A3%81%E7%BA%B8/"/>
+    
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python树莓派的安装与启动</title>
+    <link href="http://example.com/2020/11/20/python/"/>
+    <id>http://example.com/2020/11/20/python/</id>
+    <published>2020-11-20T07:58:00.000Z</published>
+    <updated>2021-03-06T09:08:26.943Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;需要准备的东西&quot;&gt;&lt;a href=&quot;#需要准备的东西&quot; class=&quot;headerlink&quot; title=&quot;需要准备的东西&quot;&gt;&lt;/a&gt;需要准备的东西&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;树莓派官方套餐一个&lt;/li&gt;
+&lt;li&gt;HDMI3.5寸屏幕一个&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一般的官方套餐中SD卡中会自带烧录好的系统，因为库存不够了，我的是一张闪存卡需要自己烧录&lt;br&gt;接下来进官网下载了可以远程登陆的系统版本&lt;br&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127124700.png&quot; alt=&quot;system&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Python" scheme="http://example.com/categories/Python/"/>
+    
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+</feed>

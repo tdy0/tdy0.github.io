@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>jQuery 学习笔记</title>
+      <link href="2021/03/06/Jquery/"/>
+      <url>2021/03/06/Jquery/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>注：本文根据尚硅谷视频教程整理而成，单纯为了加深自己的印象，文中代码参考自jQuery API，如有侵权，请联系我进行删除。</p><blockquote><p>尚硅谷视频链接：<a href="https://www.bilibili.com/video/BV1Y7411K7zz?p=62">https://www.bilibili.com/video/BV1Y7411K7zz?p=62</a></p></blockquote></blockquote><h1 id="jQuery-介绍"><a href="#jQuery-介绍" class="headerlink" title="jQuery 介绍"></a>jQuery 介绍</h1><h2 id="什么是jQuery-？"><a href="#什么是jQuery-？" class="headerlink" title="什么是jQuery ？"></a>什么是jQuery ？</h2><p>jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架），极大地简化了 JavaScript 编程。</p><h2 id="jQuery-的核心理念"><a href="#jQuery-的核心理念" class="headerlink" title="jQuery 的核心理念"></a>jQuery 的核心理念</h2><p>write less, do more（写的 更少，做的更多）。</p><h1 id="jQuery的核心函数"><a href="#jQuery的核心函数" class="headerlink" title="jQuery的核心函数$()"></a>jQuery的核心函数$()</h1><p>$(function(){})就相当于js中的windows.onload=function(){}，极大的简化了操作，后面我们会大量用到$()核心函数。</p><h1 id="jQuery的对象的本质"><a href="#jQuery的对象的本质" class="headerlink" title="jQuery的对象的本质"></a>jQuery的对象的本质</h1><p>在这里我们创建一些button按钮来进行演示。</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">var $button &#x3D; $(&quot;button&quot;);</span><br><span class="line">alert($button);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>我们获取button按钮并输出查看它的类型。<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/645hg.png"><br>我们可以看到它是object Object类型，这是jQuery对象的标志。<br>接下来我们再输出它的第一个元素。</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">var $button &#x3D; $(&quot;button&quot;);</span><br><span class="line">alert($button[0]);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>  <img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/htmls.png"></p><p>我们可以看到它是object HTMLButtonElement类型，而这是js对象的标志。<br>由上述的对比，我们不难看出jQuery对象其实就是dom对象组成的数组。</p><h1 id="jQuery选择器"><a href="#jQuery选择器" class="headerlink" title="jQuery选择器"></a>jQuery选择器</h1><blockquote><p>不同类型的选择器所用到的HTML代码会标注在前面，下同。</p></blockquote><h2 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h2><p>公共HTML 代码:<br>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;notMe&quot; class&#x3D;&quot;note&quot;&gt;&lt;p&gt;id&#x3D;&quot;notMe&quot;&lt;&#x2F;p&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div id&#x3D;&quot;myDiv&quot;&gt;&lt;span&gt;span&lt;&#x2F;span&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure></p><h3 id="id"><a href="#id" class="headerlink" title="#id"></a>#id</h3><p>  根据给定的ID匹配一个元素。</p><p>  jQuery 代码:<br>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(&quot;#myDiv&quot;);</span><br></pre></td></tr></table></figure><br>  结果:<br>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[ &lt;div id&#x3D;&quot;myDiv&quot;&gt;id&#x3D;&quot;myDiv&quot;&lt;&#x2F;div&gt; ]</span><br></pre></td></tr></table></figure></p><h3 id="element元素"><a href="#element元素" class="headerlink" title="element元素"></a>element元素</h3><p>根据给定的元素名匹配所有元素。<br>jQuery 代码:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(&quot;div&quot;);</span><br></pre></td></tr></table></figure><p>结果:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;notMe&quot; class&#x3D;&quot;note&quot;&gt;&lt;p&gt;id&#x3D;&quot;notMe&quot;&lt;&#x2F;p&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div id&#x3D;&quot;myDiv&quot;&gt;&lt;span&gt;span&lt;&#x2F;span&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure><h3 id="class"><a href="#class" class="headerlink" title=".class"></a>.class</h3><p>根据给定的类匹配元素。<br>jQuery 代码:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(&quot;.note&quot;);</span><br></pre></td></tr></table></figure><p>结果:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;notMe&quot; class&#x3D;&quot;note&quot;&gt;&lt;p&gt;id&#x3D;&quot;notMe&quot;&lt;&#x2F;p&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure><h3 id=""><a href="#" class="headerlink" title="*"></a>*</h3><p>匹配所有元素。<br>jQuery 代码:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(&quot;*&quot;);</span><br></pre></td></tr></table></figure><p>结果:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;notMe&quot; class&#x3D;&quot;note&quot;&gt;&lt;p&gt;id&#x3D;&quot;notMe&quot;&lt;&#x2F;p&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div id&#x3D;&quot;myDiv&quot;&gt;&lt;span&gt;span&lt;&#x2F;span&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure><h3 id="selector1-selectorN"><a href="#selector1-selectorN" class="headerlink" title="selector1,selectorN"></a>selector1,selectorN</h3><p>将每一个选择器匹配到的元素合并后一起返回。<br>jQuery 代码:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(&quot;div span&quot;);</span><br></pre></td></tr></table></figure><p>结果:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span&gt;span&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure><h2 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h2><p>公共HTML代码：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;form&gt;</span><br><span class="line">    &lt;label&gt;Name:&lt;&#x2F;label&gt;</span><br><span class="line">    &lt;input name&#x3D;&quot;name&quot; &#x2F;&gt;</span><br><span class="line">    &lt;fieldset&gt;</span><br><span class="line">        &lt;label&gt;Newsletter:&lt;&#x2F;label&gt;</span><br><span class="line">        &lt;input name&#x3D;&quot;newsletter&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;fieldset&gt;</span><br><span class="line">&lt;&#x2F;form&gt;</span><br><span class="line">&lt;input name&#x3D;&quot;none&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure><h3 id="ancestor-descendant"><a href="#ancestor-descendant" class="headerlink" title="ancestor descendant"></a>ancestor descendant</h3><p>在给定的祖先元素下匹配所有的后代元素。<br>jQuery 代码:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(&quot;form input&quot;)</span><br></pre></td></tr></table></figure><p>结果:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[ &lt;input name&#x3D;&quot;name&quot; &#x2F;&gt;, &lt;input name&#x3D;&quot;newsletter&quot; &#x2F;&gt; ]</span><br></pre></td></tr></table></figure><h3 id="parent-gt-child"><a href="#parent-gt-child" class="headerlink" title="parent &gt; child"></a>parent &gt; child</h3><p>在给定的父元素下匹配所有的子元素。<br>jQuery 代码:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(&quot;form &gt; input&quot;)</span><br></pre></td></tr></table></figure><p>结果:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[ &lt;input name&#x3D;&quot;name&quot; &#x2F;&gt; ]</span><br></pre></td></tr></table></figure><h3 id="prev-next"><a href="#prev-next" class="headerlink" title="prev + next"></a>prev + next</h3><p>匹配所有紧接在 prev 元素后的 next 元素。<br>jQuery 代码:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(&quot;label + input&quot;)</span><br></pre></td></tr></table></figure><p>结果:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[ &lt;input name&#x3D;&quot;name&quot; &#x2F;&gt;, &lt;input name&#x3D;&quot;newsletter&quot; &#x2F;&gt; ]</span><br></pre></td></tr></table></figure><h3 id="prev-siblings"><a href="#prev-siblings" class="headerlink" title="prev ~ siblings"></a>prev ~ siblings</h3><p>匹配 prev 元素之后的所有 siblings 元素。<br>jQuery 代码:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(&quot;form ~ input&quot;)</span><br></pre></td></tr></table></figure><p>结果:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[ &lt;input name&#x3D;&quot;none&quot; &#x2F;&gt; ]</span><br></pre></td></tr></table></figure><h2 id="表单选择器"><a href="#表单选择器" class="headerlink" title="表单选择器"></a>表单选择器</h2><p>公共HTML代码:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;form&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;Input Button&quot;&#x2F;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;checkbox&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;input type&#x3D;&quot;file&quot; &#x2F;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;hidden&quot; &#x2F;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;image&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;input type&#x3D;&quot;password&quot; &#x2F;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;radio&quot; &#x2F;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;reset&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;input type&#x3D;&quot;submit&quot; &#x2F;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;text&quot; &#x2F;&gt;</span><br><span class="line">    &lt;select&gt;&lt;option&gt;Option&lt;&#x2F;option&gt;&lt;&#x2F;select&gt;</span><br><span class="line"></span><br><span class="line">    &lt;textarea&gt;&lt;&#x2F;textarea&gt;</span><br><span class="line">    &lt;button&gt;Button&lt;&#x2F;button&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure><h3 id="input"><a href="#input" class="headerlink" title=":input"></a>:input</h3><p>匹配所有 input, textarea, select 和 button 元素。<br>jQuery 代码:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(&quot;:input&quot;)</span><br></pre></td></tr></table></figure><p>结果:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;form&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;Input Button&quot;&#x2F;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;checkbox&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;input type&#x3D;&quot;file&quot; &#x2F;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;hidden&quot; &#x2F;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;image&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;input type&#x3D;&quot;password&quot; &#x2F;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;radio&quot; &#x2F;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;reset&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;input type&#x3D;&quot;submit&quot; &#x2F;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;text&quot; &#x2F;&gt;</span><br><span class="line">    &lt;select&gt;&lt;option&gt;Option&lt;&#x2F;option&gt;&lt;&#x2F;select&gt;</span><br><span class="line"></span><br><span class="line">    &lt;textarea&gt;&lt;&#x2F;textarea&gt;</span><br><span class="line">    &lt;button&gt;Button&lt;&#x2F;button&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure><h3 id="text"><a href="#text" class="headerlink" title=":text"></a>:text</h3><p>匹配所有的单行文本框。<br>jQuery 代码:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(&quot;:text&quot;)</span><br></pre></td></tr></table></figure><p>结果:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;text&quot;&gt;</span><br></pre></td></tr></table></figure><h3 id="password"><a href="#password" class="headerlink" title=":password"></a>:password</h3><p>匹配所有密码框。<br>jQuery 代码:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(&quot;:password&quot;)</span><br></pre></td></tr></table></figure><p>结果:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;password&quot;&gt;</span><br></pre></td></tr></table></figure><h3 id="checkbox"><a href="#checkbox" class="headerlink" title=":checkbox"></a>:checkbox</h3><p>匹配所有复选框。<br>jQuery 代码:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(&quot;:checkbox&quot;)</span><br></pre></td></tr></table></figure><p>结果:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[ &lt;input type&#x3D;&quot;checkbox&quot; &#x2F;&gt; ]</span><br></pre></td></tr></table></figure><h3 id="hidden"><a href="#hidden" class="headerlink" title=":hidden"></a>:hidden</h3><p>匹配所有不可见元素，或者type为hidden的元素。<br>jQuery 代码:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(&quot;input:hidden&quot;)</span><br></pre></td></tr></table></figure><p>结果:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[ &lt;input type&#x3D;&quot;hidden&quot; name&#x3D;&quot;id&quot; &#x2F;&gt; ]</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> jQuery </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux常用命令之基本操作</title>
+      <link href="2021/03/01/command/"/>
+      <url>2021/03/01/command/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h1><p>最近看了点关于linux的常用命令总结，在这里回顾下</p><p>Linux是多用户多任务的操作系统，而相比windows操作系统，可以说是“假”的多用户了，它实际上并不支持多个用户在同一时间登录。</p><h1 id="Linux命令格式"><a href="#Linux命令格式" class="headerlink" title="Linux命令格式"></a>Linux命令格式</h1><hr><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">command  [-options]  [parameter1]  …</span><br></pre></td></tr></table></figure><p>command: 命令名,相应功能的英文单词或单词的缩写 [-options]：选项,可用来对命令进行控制，也可以省略，[]代表可选 parameter1 …：传给命令的参数：可以是零个一个或多个</p><ul><li>ls 列出当前目录的内容</li></ul><p><em>参数解释：</em><br>可显示指定目录下所有的子目录与文件，包括隐藏文件（以点（.）开头的文件），如ls -a</p><ul><li>ls -l :<br>以列表方式显示文件的详细信息，包含权限，大小，硬链接数等信息</li><li>ls -h :与-l同时使用以更人性化方式显示文件信息<span id="more"></span>注意点:</li></ul><p> ① 可用ls -lah直接使用三个参数，lah不分顺序<br> ② ls -la 可用更为简单的命令ll替代</p><ul><li>pwd 显示当前工作目录</li><li>touch xxxx(文件名包括拓展名) 可创建文件</li><li>mkdir 创建文件夹<br>通过mkdir命令可以创建一个新的目录。参数-p可递归创建目录。需要注意的是新建目录的名称不能与当前目录中已有的目录或文件同名，并且目录创建者必须对当前目录具有写权限。</li><li>rmdir<br> 可使用rmdir命令删除一个目录。限制：必须当前不在此目录，并且目录必须为空目录，不然提示删除失败。</li><li>rm xxxx(文件名包括拓展名) 可删除文件</li></ul><p> ①无参数：如 rm 文件名，只能删除文件</p><p> ②-r：<br>递归地删除目录下的内容，删除文件夹时必加参数,如rm A -r</p><p> ③-f：强制删除，忽略不存在的文件，无需提示,如rm A -f</p><ul><li>gedit 文件名 编辑文件</li><li>cat 查看或者合并文件内容，内容结果在终端显示，如cat 1.txt<br>另一种用法，cat 1.txt 2.txt &gt;（或&gt;&gt;） 3.txt,将前两个文件的内容重定向到3.txt中</li><li>history 查看历史命令，或按上下键可切换<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127132403.png"><br>可使用！加编号便可实现命令，如使用！111则可实现ls命令</li><li>重定向 &gt; 即将文件内容保存到另一个文件中<br>如ls &gt; xxx.txt，即ls输出的内容会被保存到xxx.txt中</li></ul><p> 注意点：<br>① &gt; 输出重定向会覆盖文件原来的内容。<br>② &gt;&gt; 输出重定向时则会追加到原文件的尾部。</p><ul><li>more 分屏命令，如 more 文件名 可分屏查看，按f向前翻一页，按b向后翻一页,按Ctrl + C退出</li><li> | 管道，一个命令的输出可通过管道做为另一个命令的输入，管道充当了暂时存储前一个命令信息的任务<br>如，ls -lh | more，首先把ls -lh的输出内容放到管道中，然后再从管道中取出供more使用显示</li><li>clear 清屏操作</li><li>cd 用于切换当前工作目录至指定目录</li></ul><p>  （1）<br>‘.’一个点代表当前路径，如cd ./</p><p> （2）<br>‘..’两个点代表上一层路径，如cd ../</p><p> （3）<br>“../..”<br>代表上一路径的上一路径（相对路径），如cd ../..</p><p> （4）<br>“-“<br>跳回上次所在路径，若再使用，跳回本次路径（只能记录一次路径），如cd -<br>如下图<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127132709.png"><br> （5）<br>“~”<br>进入家目录，如cd ~</p><ul><li>Ctrl + C 不执行当前命令</li><li>tree 生成目录树，需要自己安装包</li><li>mv 重命名，如mv 1.txt 2.txt，另一种用法mv 1.txt folder 可将1.txt文件移动到文件夹folder中</li><li>ln 创建快捷方式<br> Linux链接文件类似于Windows下的快捷方式,链接文件分为软链接和硬链接。<br> 软链接与硬链接区别：软链接不占用磁盘空间，源文件删除则软链接失效，硬链接无影响，硬链接只能链接普通文件，不能链接目录。<br>使用格式：</li></ul><p> ①无参数：<br>如 ln 1.txt hard.txt(硬链接文件)</p><p> ②-s：如 ln -s 1.txt hard.txt(软链接文件)</p><ul><li>grep 文本搜索<br>一般格式为：<br> grep [-选项] ‘搜索内容串’ 文件名<br>如:grep “st” xxx.txt,即在xxx.txt中查找字符串”st”<br> grep “^ntfs” xxx.txt，即查找以ntfs开头的文件名,类似于正则</li></ul><p> ①-v：<br>显示不包含匹配文本的所有行（相当于求反）</p><p> ②-n：<br>显示匹配行及行号</p><p> ③ -l：<br>忽略大小写</p><ul><li>cp 拷贝文件<br>cp命令的功能是将给出的文件或目录复制到另一个文件或目录中，相当于DOS下的copy命令。<br>常用选项说明：</li></ul><p> ①-r：<br>若给出的源文件是目录文件，则cp将递归复制该目录下的所有子目录和文件，目标文件必须为一个目录名。</p><p> ②-v：<br>显示拷贝进度</p><ul><li>find  查找文件<br>常用用法：</li></ul><p> ①”./ -name test.txt”：<br>查找当前目录下所有名为test.txt的文件</p><p> ②”./ -name ‘*.sh’”：<br>查找当前目录下所有后缀为.sh的文件</p><p> ③”/tmp -size 2M”：<br>查找在/tmp 目录下等于2M的文件</p><p> ④”/tmp -size +(-)2M”：<br>查找在/tmp 目录下大于(小于)2M的文件</p><p> ⑤”./ -size +4k -size -5M”：<br>查找当前目录下大于4k，小于5M的文件</p><ul><li>tar 归档管理<br>tar使用格式 tar [参数] 打包文件名 文件<br> tar命令很特殊，其参数前面可以使用“-”，也可以不使用。</li></ul><p> ①”-cvf(打包) / -xvf(解包)”：<br>tar -cvf test.tar *.py 将py文件打包<br>tar -xvf test.tar 解压到当前路径</p><p> ②”-zcvf(压缩) / -zxvf(解压缩)”：<br>tar -zcvf test.tar.gz *.py 将py文件压缩；<br>tar -zxvf test.tar.gz 解压到当前路径  ；<br>tar -zxvf test.tar.gz -C 目录名  解压到指定路径<br> ③”-jcvf(压缩) / -jxvf(解压缩)”：<br>tar -jcvf test.tar.bz2 *.py 将py文件压缩(容量压缩比.gz文件大一点)；<br>tar -jxvf test.tar.bz2 解压到当前路径  </p><ul><li>zip压缩包<br> zip xxx.zip *.py(压缩)<br> unzip xxx.zip(解压缩)<br> unzip -d ./test xxx.zip(解压缩到指定路径)</li></ul><p> <em>注意：</em><br>    压缩容量排行 : gz&lt;bz2&lt;zip</p><ul><li>which 查看命令位置，如: which ls</li><li>cal 查看日历，-y显示整年日历，如: cal -y 2019</li><li>date 显示或设置时间</li></ul><p>参数：</p><p> ①<br>“%Y，%y”：年</p><p>②<br>“%m”：月</p><p>③<br>“%d”：日</p><ul><li>ps 查看进程信息，无参数时表示只查看当前终端的信息<br> ps -aux 查看所有进程信息</li><li>top 动态显示当前进程</li><li>kill 可结束进程，需要配合 ps 使用<br>如：kill 9130，9133 为应用程序所对应的进程号（通过ps命令查看）</li><li>reboot 重新启动操作系统<br> shutdown -P now 立刻关闭操作系统<br> shutdown -P +10 10分钟后关闭操作系统</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>分享一个谷歌浏览器的视频加速插件</title>
+      <link href="2021/02/26/speed/"/>
+      <url>2021/02/26/speed/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Video-Speed-Controller"><a href="#Video-Speed-Controller" class="headerlink" title="Video Speed Controller"></a>Video Speed Controller</h1><p>平常在我们看一些时间长的课程视频的时候，想快进但是又怕落下什么重要的东西，很是为难，这个插件便完美的解决了这个问题。</p><span id="more"></span><h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>首先附上<a href="https://greasyfork.org/zh-CN/scripts/398821-%E8%A7%86%E9%A2%91%E9%80%9F%E5%BA%A6%E6%8E%A7%E5%88%B6%E5%99%A8">下载链接</a>，下载完成后打开谷歌浏览器地址栏输入 chrome://extensions/ 按回车打开扩展程序页面，打开扩展程序页面的“开发者模式”，<img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127131644.png"></p><!--more--><p>将crx文件拖放到扩展程序页面，完成安装<br>之后便可以通过在地址栏旁看到按钮<img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127131659.png"><br>点击设置便可实现加速<img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127131711.png"></p><!--more--><p>最后提供一些快捷键：</p><ul><li>S - 降低播放速度。</li><li>D - 提高播放速度。</li><li>R - 重置播放速度。</li><li>Z - 倒带视频10秒。</li><li>X - 将视频提前10秒。</li><li>V - 显示/隐藏控制器。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Video </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 插件 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux 常用命令之用户和权限管理</title>
+      <link href="2021/02/21/user/"/>
+      <url>2021/02/21/user/</url>
+      
+        <content type="html"><![CDATA[<h1 id="用户、权限管理"><a href="#用户、权限管理" class="headerlink" title="用户、权限管理"></a>用户、权限管理</h1><p>用户是Unix/Linux系统工作中重要的一环，用户管理包括用户与组账号的管理。<br>在Unix/Linux系统中，不论是由本机或是远程登录系统，每个系统都必须拥有一个账号，并且对于不同的系统资源拥有不同的使用权限。Unix/Linux系统中的root账号通常用于系统的维护和管理，它对Unix/Linux操作系统的所有部分具有不受限制的访问权限。在Unix/Linux安装的过程中，系统会自动创建许多用户账号，而这些默认的用户就称为“标准用户”。而在大多数版本的Unix/Linux中，都不推荐直接使用root账号登录系统。</p><ul><li>查看当前用户：whoami<br>whoami该命令用户查看当前系统当前账号的用户名。可通过cat /etc/passwd查看系统用户信息。<br> <img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127135512.png"> <span id="more"></span></li><li>查看登录用户：who<br>who命令用于查看当前所有登录系统的用户信息。</li></ul><p> ①”-q”：只显示用户的登录账号和登录用户的数量</p><p> ②”-u”：显示列标题</p><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127135528.png"></p><ul><li>退出登录账户： exit<br> 如果是图形界面，退出当前终端；<br> 如果是使用ssh远程登录，退出登陆账户；<br> 如果是切换后的登陆用户，退出则返回上一个登陆账号。</li><li>添加用户账号：useradd<br>在Unix/Linux中添加用户账号可以使用adduser或useradd命令，因为adduser命令是指向useradd命令的一个链接，因此，这两个命令的使用格式完全一样。<br> useradd命令的使用格式如下： useradd [参数] 新建用户账号</li></ul><p> ①”useradd -d /home/abc abc -m”：创建abc用户，如果/home/abc目录不存在，就自动创建这个目录，同时用户属于abc组</p><p> ②”useradd -d /home/abc abc -g test -m”：创建一个用户名字叫abc，主目录在/home/abc，如果主目录不存在，就自动创建主目录，同时用户属于test组</p><p> ③”cat /etc/passwd”：查看系统当前用户名</p><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127135701.png"></p><p> 注意：</p><p> ①. Linux每个用户都要有一个主目录，主目录就是第一次登陆系统，用户的默认当前目录(/home/用户)；</p><p> ②. 每一个用户必须有一个主目录，所以用useradd创建用户的时候，一定给用户指定一个主目录；</p><p> ③. 用户的主目录一般要放到根目录的home目录下，用户的主目录和用户名是相同的；</p><p> ④. 如果创建用户的时候，不指定组名，那么系统会自动创建一个和用户名一样的组名。</p><ul><li>设置用户密码：passwd<br>在Unix/Linux中，超级用户可以使用passwd命令为普通用户设置或修改用户口令。用户也可以直接使用该命令来修改自己的口令，而无需在命令后面使用用户名。<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127140027.png"></li><li>删除用户：userdel</li></ul><p> ①”userdel abc(用户名)”：删除abc用户，但不会自动删除用户的主目录</p><p> ②”userdel -r abc(用户名)”：删除用户，同时删除用户的主目录</p><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127140149.png"></p><ul><li>切换用户：su<br>可以通过su命令切换用户，su后面可以加“-”。su和su –命令不同之处在于，su -切换到对应的用户时会将当前的工作目录自动转换到切换后的用户主目录：</li></ul><hr><p>   <img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127140218.png"></p><ul><li>查看有哪些用户组</li></ul><p> ①. cat /etc/group</p><p> ②. groupmod +三次tab键</p><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127140239.png"></p><ul><li>添加、删除组账号：groupadd、groupdel</li></ul><p>groupadd 新建组账号 groupdel 组账号 cat /etc/group 查看用户组</p><ul><li>修改用户所在组：usermod<br>使用方法：usermod -g 用户组 用户名<br>查看用户在哪些组:groups 用户名<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127140332.png"></li><li>修改文件权限：chmod</li></ul><p>chmod 修改文件权限有两种使用格式：字母法与数字法。</p><p>①.字母法：chmod u/g/o/a +/-/= rwx 文件</p><p>+:增加权限</p><p>-:撤销权限</p><p>=:设定权限</p><p>r:可读</p><p>w:可写</p><p>x:可执行(excute)</p><p>u:user 表示该文件的所有者</p><p>g:group 表示与该文件的所有者属于同一组( group )者，即用户组</p><p>o:other 表示其他以外的人</p><p>a:all 表示这三者皆是</p><p>②.数字法：</p><p>r读取权限，数字代号为 “4”</p><p>w写入权限，数字代号为 “2”</p><p>x执行权限，数字代号为 “1”</p><p>-不具任何权限，数字代号为 “0”</p><p>如执行：chmod u=rwx,g=rx,o=r filename 就等同于：chmod u=7,g=5,o=4 filename</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【学相伴】Nginx最新教程通俗易懂-狂神说</title>
+      <link href="2021/02/16/Nginx/"/>
+      <url>2021/02/16/Nginx/</url>
+      
+        <content type="html"><![CDATA[<p>本文转载于:<a href="https://blog.csdn.net/qq_33369905/article/details/113245513#commentBox">https://blog.csdn.net/qq_33369905/article/details/113245513#commentBox</a></p><h1 id="Nginx-学相伴"><a href="#Nginx-学相伴" class="headerlink" title="Nginx - 学相伴"></a>Nginx - 学相伴</h1><blockquote><p>分享人：秦疆（遇见狂神说） </p></blockquote><h2 id="公司产品出现瓶颈？"><a href="#公司产品出现瓶颈？" class="headerlink" title="公司产品出现瓶颈？"></a>公司产品出现瓶颈？</h2><p>我们公司项目刚刚上线的时候，并发量小，用户使用的少，所以在低并发的情况下，一个jar包启动应用就够了，然后内部tomcat返回内容给用户。<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204165810.png"></p><span id="more"></span><p>但是慢慢的，使用我们平台的用户越来越多了，并发量慢慢增大了，这时候一台服务器满足不了我们的需求了。<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204165832.png"><br>于是我们横向扩展，又增加了服务器。这个时候几个项目启动在不同的服务器上，用户要访问，就需要增加一个代理服务器了，通过代理服务器来帮我们转发和处理请求。<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204165850.png"><br>我们希望这个代理服务器可以帮助我们接收用户的请求，然后将用户的请求按照规则帮我们转发到不同的服务器节点之上。这个过程用户是无感知的，用户并不知道是哪个服务器返回的结果，我们还希望他可以按照服务器的性能提供不同的权重选择。保证最佳体验！所以我们使用了Nginx。</p><h2 id="什么是Nginx？"><a href="#什么是Nginx？" class="headerlink" title="什么是Nginx？"></a>什么是Nginx？</h2><p>Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。2011年6月1日，nginx 1.0.4发布。</p><p>其特点是占有内存少，并发能力强，事实上nginx的并发能力在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。在全球活跃的网站中有12.18%的使用比率，大约为2220万个网站。</p><p>Nginx 是一个安装非常的简单、配置文件非常简洁（还能够支持perl语法）、Bug非常少的服务。Nginx 启动特别容易，并且几乎可以做到7*24不间断运行，即使运行数个月也不需要重新启动。你还能够不间断服务的情况下进行软件版本的升级。</p><p>Nginx代码完全用C语言从头写成。官方数据测试表明能够支持高达 50,000 个并发连接数的响应。</p><h2 id="Nginx作用？"><a href="#Nginx作用？" class="headerlink" title="Nginx作用？"></a>Nginx作用？</h2><blockquote><p>Http代理，反向代理：作为web服务器最常用的功能之一，尤其是反向代理。</p></blockquote><p>正向代理<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204170004.png"><br>反向代理<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204170104.png"></p><blockquote><p>Nginx提供的负载均衡策略有2种：内置策略和扩展策略。内置策略为轮询，加权轮询，Ip hash。扩展策略，就天马行空，只有你想不到的没有他做不到的。</p></blockquote><p>轮询<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204170129.png"><br>加权轮询<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204170144.png"><br>iphash对客户端请求的ip进行hash操作，然后根据hash结果将同一个客户端ip的请求分发给同一台服务器进行处理，可以解决session不共享的问题。<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204170157.png"></p><blockquote><p>动静分离，在我们的软件开发中，有些请求是需要后台处理的，有些请求是不需要经过后台处理的（如：css、html、jpg、js等等文件），这些不需要经过后台处理的文件称为静态文件。让动态网站里的动态网页根据一定规则把不变的资源和经常变的资源区分开来，动静资源做好了拆分以后，我们就可以根据静态资源的特点将其做缓存操作。提高资源响应的速度。</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204170216.png"><br>目前，通过使用Nginx大大提高了我们网站的响应速度，优化了用户体验，让网站的健壮性更上一层楼！</p><h2 id="Nginx的安装"><a href="#Nginx的安装" class="headerlink" title="Nginx的安装"></a>Nginx的安装</h2><h3 id="windows下安装"><a href="#windows下安装" class="headerlink" title="windows下安装"></a>windows下安装</h3><p>1、下载nginx<br><a href="http://nginx.org/en/download.html">http://nginx.org/en/download.html</a> 下载稳定版本。</p><p>以nginx/Windows-1.16.1为例，直接下载 nginx-1.16.1.zip。<br>下载后解压，解压后如下：<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204170300.png"><br>2、启动nginx<br>有很多种方法启动nginx</p><p>(1)直接双击nginx.exe，双击后一个黑色的弹窗一闪而过</p><p>(2)打开cmd命令窗口，切换到nginx解压目录下，输入命令 <strong>nginx.exe</strong> ，回车即可</p><p>3、检查nginx是否启动成功</p><p>直接在浏览器地址栏输入网址 <a href="http://localhost/">http://localhost:80</a> 回车，出现以下页面说明启动成功！<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204170357.png"></p><p>4、配置监听</p><p>nginx的配置文件是conf目录下的nginx.conf，默认配置的nginx监听的端口为80，如果80端口被占用可以修改为未被占用的端口即可。<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204170456.png"><br>当我们修改了nginx的配置文件nginx.conf 时，不需要关闭nginx后重新启动nginx，只需要执行命令 <strong>nginx -s reload</strong> 即可让改动生效</p><p>5、关闭nginx</p><p>如果使用cmd命令窗口启动nginx， 关闭cmd窗口是不能结束nginx进程的，可使用两种方法关闭nginx</p><p>(1)输入nginx命令 <strong>nginx -s stop</strong>(快速停止nginx) 或 <strong>nginx -s quit</strong>(完整有序的停止nginx)</p><p>(2)使用taskkill <strong>taskkill /f /t /im nginx.exe</strong></p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">taskkill是用来终止进程的，</span><br><span class="line">&#x2F;f是强制终止 .</span><br><span class="line">&#x2F;t终止指定的进程和任何由此启动的子进程。</span><br><span class="line">&#x2F;im示指定的进程名称 .</span><br></pre></td></tr></table></figure><h3 id="linux下安装"><a href="#linux下安装" class="headerlink" title="linux下安装"></a>linux下安装</h3><p>1、安装gcc</p><p>安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境，如果没有 gcc 环境，则需要安装：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install gcc-c++</span><br></pre></td></tr></table></figure><p>2、PCRE pcre-devel 安装</p><p>PCRE(Perl Compatible Regular Expressions) 是一个Perl库，包括 perl 兼容的正则表达式库。nginx 的 http 模块使用 pcre 来解析正则表达式，所以需要在 linux 上安装 pcre 库，pcre-devel 是使用 pcre 开发的一个二次开发库。nginx也需要此库。命令：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install -y pcre pcre-devel</span><br></pre></td></tr></table></figure><p>3、zlib 安装</p><p>zlib 库提供了很多种压缩和解压缩的方式， nginx 使用 zlib 对 http 包的内容进行 gzip ，所以需要在 Centos 上安装 zlib 库。</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install -y zlib zlib-devel</span><br></pre></td></tr></table></figure><p>4、OpenSSL 安装</p><p>OpenSSL 是一个强大的安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及 SSL 协议，并提供丰富的应用程序供测试或其它目的使用。</p><p>nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http），所以需要在 Centos 安装 OpenSSL 库。</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install -y openssl openssl-devel</span><br></pre></td></tr></table></figure><p>5、下载安装包</p><p>手动下载.tar.gz安装包，地址：<a href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a><br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204170802.png"><br>下载完毕上传到服务器上 /root</p><p>6、解压</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar -zxvf nginx-1.18.0.tar.gz</span><br><span class="line">cd nginx-1.18.0</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204170832.png"></p><p>7、配置</p><p>使用默认配置，在nginx根目录下执行</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;configure</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure><p>查找安装路径： <strong>whereis nginx</strong><br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204170932.png"></p><h2 id="Nginx常用命令"><a href="#Nginx常用命令" class="headerlink" title="Nginx常用命令"></a>Nginx常用命令</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;</span><br><span class="line">.&#x2F;nginx  启动</span><br><span class="line">.&#x2F;nginx -s stop  停止</span><br><span class="line">.&#x2F;nginx -s quit  安全退出</span><br><span class="line">.&#x2F;nginx -s reload  重新加载配置文件</span><br><span class="line">ps aux|grep nginx  查看nginx进程</span><br></pre></td></tr></table></figure><p>启动成功访问 服务器ip:80<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204171005.png"><br>注意：如果连接不上，检查阿里云安全组是否开放端口，或者服务器防火墙是否开放端口！<br>相关命令：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 开启</span><br><span class="line">service firewalld start</span><br><span class="line"># 重启</span><br><span class="line">service firewalld restart</span><br><span class="line"># 关闭</span><br><span class="line">service firewalld stop</span><br><span class="line"># 查看防火墙规则</span><br><span class="line">firewall-cmd --list-all</span><br><span class="line"># 查询端口是否开放</span><br><span class="line">firewall-cmd --query-port&#x3D;8080&#x2F;tcp</span><br><span class="line"># 开放80端口</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;80&#x2F;tcp</span><br><span class="line"># 移除端口</span><br><span class="line">firewall-cmd --permanent --remove-port&#x3D;8080&#x2F;tcp</span><br><span class="line"></span><br><span class="line">#重启防火墙(修改配置后要重启防火墙)</span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br><span class="line"># 参数解释</span><br><span class="line">1、firwall-cmd：是Linux提供的操作firewall的一个工具；</span><br><span class="line">2、--permanent：表示设置为持久；</span><br><span class="line">3、--add-port：标识添加的端口；</span><br></pre></td></tr></table></figure><h2 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">upstream lb&#123;</span><br><span class="line">server 127.0.0.1:8080 weight&#x3D;1;</span><br><span class="line">server 127.0.0.1:8081 weight&#x3D;1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location &#x2F; &#123;</span><br><span class="line">proxy_pass http:&#x2F;&#x2F;lb;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>**配套的视频已经发布到B站，看前记得三连投币支持哦~ **<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204171113.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Nginx </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>OneIndex部署，基本OneDrive打造私人云盘</title>
+      <link href="2021/02/11/OneIndex/"/>
+      <url>2021/02/11/OneIndex/</url>
+      
+        <content type="html"><![CDATA[<h1 id="搭建前的准备"><a href="#搭建前的准备" class="headerlink" title="搭建前的准备"></a>搭建前的准备</h1><ul><li>一个域名，可以直接从阿里云域名服务中申请并备案（备案较麻烦），且需要支持HTTPS协议。</li><li>一台服务器。我是从阿里云租的轻量版的服务器，宝塔面板，专门针对学生的一款服务器，价格还算实惠。不愿意租用服务器的同学也可以用国外的一款免费的<a href="https://www.freewebhostingarea.com/">虚拟空间</a>,由于是免费的，访问速度相对就会慢一些。</li><li>下载好oneindex的<a href="https://github.com/Layne666/oneindex">源码</a>，（由于作者已经关闭了源码的开放 ，这里用的是基于原版本的魔改版。）</li><li>世纪互联的账号一个。这里我是直接从某宝买的一个存储容量5t的账号，直接搜世纪互联onedrive就行。</li></ul><h1 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h1><ol><li><p>我们先进入世纪互联的<a href="https://www.azure.cn/">官网</a>,登录之后我们点击这里的查看。<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/test.png"><br>然后在左侧的管理栏中点击应用注册。<span id="more"></span></p></li><li></li><li><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/45454.png"><br> 在这里名称随意填写即可，下面选择任何组织目录，重定向的URL需要填写HTTPS协议的网址。<br> <img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/202102041052.png"><br> 创建成功之后我们先放一放，打开宝塔面板，将之前下载好的源码上传到网站的目录上。<br> <img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/202102041100.png"><br> 然后我们解压之后在宝塔的面板的左侧栏网站中选择域名的网站目录，将运行目录改为解压的文件夹。<br> <img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/202102041101.png"><br> 之后我们重新访问下域名。看到这样的界面就代表部署成功了。<br> <img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204110307.png"><br> 由于源码里默认的网址并非我们申请的，所以我们需要做一些修改，我们打开代码，找到controller文件夹下的AdminController.php文件，双击打开后把如下图所示的位置的网址改成我们自己申请的域名，切记需要https协议。<br> <img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/202102041106.png"><br> 保存之后我们刷新网址点击下一步，就会跳转到这个界面。<br> <img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/202102041108.png"><br> 然后我们打开我们之前在azure里注册好的应用，点击API权限，点击Microsoft Graph,将权限设置成如下图所示。<br> <img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/202102041110.png"><br> <img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204111107.png"><br> 然后我们点击概述，将应用程序(客户端)ID粘贴到我们域名网页下的client_id下。<br> <img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/202102041111.png"><br> 然后我们点击证书密码，点击新客户端密码进行创建<br> <img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/202102041113.png"><br> 我们选择从不，名称空着即可。点击添加后将值粘贴到client_secret上，点击下一步绑定账号就成功了。<br> <img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/202102041114.png"><br> <img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204111505.png"><br> <img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210204111638.png"><br> 教程到这里就结束了，有任何疑问欢迎大家留言给我。</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> OneDrive </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Windows 10 安装Pytorch 0.3.1 (旧版本)教程</title>
+      <link href="2021/02/06/Pytorch/"/>
+      <url>2021/02/06/Pytorch/</url>
+      
+        <content type="html"><![CDATA[<p><strong>Pytorch GPU 0.3.1安装</strong></p><p>PyTorch 0.3.1实在太老了，无奈项目需要。安装时其他版本都可以，惟独pytorch-0.3.1下载实在太慢，尝试科学上网也不行。于是决定手动下载并安装。<br>首先说明这是基于Anaconda，python3.6，cuda90的安装。首先按照官方链接执行命令，安装其他关联包</p><p>pytorch-0.3.1包的下载地址，不同版本可能下载文件有区别，请进入目录中自行寻找。<br><a href="https://conda.anaconda.org/peterjc123/win-64/pytorch-0.3.1-py36_cuda90_cudnn7he774522_2.tar.bz2">https://conda.anaconda.org/peterjc123/win-64/pytorch-0.3.1-py36_cuda90_cudnn7he774522_2.tar.bz2</a></p><p>手动下载后使用如下代码安装（注意修改包的路径）</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda install --use-local ‪C:\Users\71983\Desktop\pytorch-0.3.1-py36_cuda90_cudnn7he774522_2.tar.bz2</span><br></pre></td></tr></table></figure><span id="more"></span><h1 id="cuda90的安装"><a href="#cuda90的安装" class="headerlink" title="cuda90的安装"></a>cuda90的安装</h1><p>一般来说 cuda只能装在拥有NVIDIA独显的电脑上，首先我们在NVIDIA控制面板上查看一下cuda 支持的版本（驱动向后兼容）<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128111001.png"></p><p>此时查看可以向后兼容支持cuda9.0，先去nvidia官网下载<a href="https://developer.nvidia.com/cuda-toolkit-archive">cudatoolkit</a>工具包，这里我们选择CUDA Toolkit9.0 <img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128111011.png"></p><p>这里我们这样选择，选择local，下面的这些小文件补丁都下载。<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128111024.png"></p><p>下载完成后打开安装即可。之后安装<a href="https://developer.nvidia.com/rdp/cudnn-archive">cudnn</a>，这个需要先注册nvidia账号才能进行下载，这里我们选择对应cuda9.0的cudnn</p><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128111036.png"></p><p>下载完成后会有对应的bin，include，lib文件夹，放到对应的C盘下的NVIDIA GPU Computing Toolkit文件夹内的bin等对应目录即可。</p><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128111056.png"></p><h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>之后在命令行内输入nvcc -V查看是否安装成功</p><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128111106.png"></p><p>至此cuda9.0 就安装成功了。之后安装pytorch按照上面的步骤操作即可。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Pytorch </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 安装 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo + Gitee 搭建博客</title>
+      <link href="2021/01/31/Hexo/"/>
+      <url>2021/01/31/Hexo/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>大家好，今天给大家介绍下在Gitee上搭建hexo博客。此前我用的是阿里云服务器和Typecho主题模版来搭建博客的， 但是由于各种问题吧（主要是穷。。）就放弃了这种搭建方式，偶然机会了解到了hexo博客，可以免费搭建在gitee上，实在太香了，就换到了gitee下搭建。话不多说，接下来讲下具体搭建步骤和我遇到的好多坑。</p><h1 id="搭建前的准备"><a href="#搭建前的准备" class="headerlink" title="搭建前的准备"></a>搭建前的准备</h1><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<br>安装 Hexo 只需几分钟时间，在安装Hexo前，我们的电脑上需要有以下的环境：</p><ul><li>Node.js (Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本)</li><li>Git</li></ul><p>在这里我就不赘述这些的安装步骤了，具体的安装步骤百度即可。我想把主要的篇幅放到hexo的插件上。hexo的<a href="https://hexo.io/zh-cn/docs/">官方文档</a>）</p><h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><p>在安装好了上述的两个环境之后，我们就正式进入正题了。为了方便管理项目，我们在磁盘根目录内新建一个文件夹。</p><span id="more"></span><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128203829.png"><br>在cmd中进入到这个文件夹<img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128204038.png"><br>为了后面下载文件的速度不至于太慢，我们先换一下npm的源。在这里我们换的源是淘宝的源。在cmd中输入下面两条命令即可。</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org –global</span><br><span class="line">npm config set disturl https:&#x2F;&#x2F;npm.taobao.org&#x2F;dist –global</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128204637.png"><br>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。按照次序输入下列的命令。</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128205140.png"><br>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br></pre></td></tr></table></figure><p>在这里我们命名为blogs。<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128205704.png"><br>到这一步我们就会在文件夹内看到下载好的组件。<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128205754.png"><br>之后我们cd进入到这个文件夹执行以下命令。</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install </span><br></pre></td></tr></table></figure><p>之后我们输入hexo s 就可以在本地看到hexo博客了。</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128210157.png"><br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128210235.png"></p><h1 id="部署到Gitee上"><a href="#部署到Gitee上" class="headerlink" title="部署到Gitee上"></a>部署到Gitee上</h1><p>首先我们登录到gitee上，在这里创建一个新的仓库<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210131104106.png"><br>创建的仓库名和用户名、路径保持一致，这样的话域名就会变成“用户名.gitee.io”。<br>之后我们打开hexo博客下的配置文件_config.yml，把这个链接复制到配置文件的，参考下图。<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210131104453.png"><br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210131104707.png"></p><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210131104830.png"><br>保存之后我们回到gitee上部署页面，在服务中我们点击Gitee Pages。<img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210131105019.png"><br>部署目录这一项空着不填，强制使用HTTPS打勾，我们直接启动，等待一会就部署成功啦！<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210131105049.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>分享一个现代化文件管理器Files</title>
+      <link href="2021/01/26/Files/"/>
+      <url>2021/01/26/Files/</url>
+      
+        <content type="html"><![CDATA[<h1 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h1><p>今天偶然发现了一款看起来还不错的软件，它就是遵循 Fluent 设计语言的 Windows 第三方文件管理工具 Files。<br>这款软件是微软参考Win10文件资源管理器得到的启发，由此开发而来，文件资源管理器在过去的window7和windows10中几乎没有太大的变化。</p><p>Files作为一个“来自未来”的文件管理器，似乎满足了“未来”的文件管理器应该有的样子，并且拥有相当多的创新点：默认主页和win10之前的文件管理器相似，不同的是他支持多标签页，可以来回切换，在我们操作时候更加方便文件的对比和传输。<img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210129174447.png"><br>同时在左下角的设置中也有着非常多的选项供用户选择，自定义主题，小工具，个性化等等。</p><span id="more"></span><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210129174657.png"><br>在进入到磁盘后，右键之后我们直接打开此目录下的命令行模式，改变布局等等。 <img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/SIPHT42K6%603BWU%7B2XI_5GTL.png"><br>但是，Files在打开硬盘的时候时会出现卡顿等问题。想体验的小伙伴可以在Microsoft Store中搜索Files，就可以安装使用啦。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 管理器 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>分享一个内网穿透工具-cpolar</title>
+      <link href="2021/01/21/cpolar/"/>
+      <url>2021/01/21/cpolar/</url>
+      
+        <content type="html"><![CDATA[<h1 id="内网穿透"><a href="#内网穿透" class="headerlink" title="内网穿透"></a>内网穿透</h1><p>首先解释下何为内网穿透，内网穿透，即NAT穿透，网络连接时术语，计算机是局域网内时，外网与内网的计算机节点需要连接通信，有时就会出现不支持内网穿透。就是说映射端口，能让外网的电脑找到处于内网的电脑，提高下载速度。这是官方解释。简单点来说就是把内网Web站点暴露在公网，可以访问，对于测试来说是最好不过得软件了方便实时查看情况。可以这么说，cpolar是Web开发调试的利器工具，它可以把内网的站点变成公网可以访问的站点，大大提高了效率。</p><span id="more"></span><h1 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h1><ul><li>首先，我们应去<a href="https://www.cpolar.com/">官网</a>注册账号<img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128110733.png"></li></ul><p>之后登录进入仪表盘，我们需要进入到cpolar得安装目录，我们可以进入安装目录直接在地址那里输入cmd回车即可进入，<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128110759.png"><br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128110811.png"></p><p>连接完成，执行./cpolar http 80 便可以访问localhost:4040了<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128110831.png"></p><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128110842.png"><br>此时就算是配置好了,之后我们需要下载一个测试站点，</p><p>把解压的exe文件放到cpolar目录下，之后输入命令./cpolar-todo-mvc，即可访问localhost:8080站点<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128110902.png"></p><p>一般来说8080端口都会被apache服务器占用，所以我们可以通过./cpolar-todo-mvc -httpAddr=:8081来切换端口号，避免冲突。<br>其实这个软件最方便的就是在不用服务器的情况下可以把自己的本机站点公布到公网上，大大方便了调试。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 内网穿透 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux 常用命令之编辑器之神-vim</title>
+      <link href="2021/01/16/vim/"/>
+      <url>2021/01/16/vim/</url>
+      
+        <content type="html"><![CDATA[<h1 id="编辑器之神-vim"><a href="#编辑器之神-vim" class="headerlink" title="编辑器之神-vim"></a>编辑器之神-vim</h1><p>Vim是从 vi 发展出来的一个文本编辑器，它在Linux上的地位就仿佛Edit程序在DOS上一样。它可以执行输出、删除、查找、替换、块操作等众多文本操作，而且用户可以根据自己的需要对其进行定制。Vim不是一个排版程序，它不象Word或WPS那样可以对字体、格式、段落等其他属性进行编排，它只是一个文本编辑程序。 Vim没有菜单，只有命令，且命令繁多。<br>Vim有三种基本工作模式：</p><ul><li> 命令模式</li><li> 文本输入模式</li><li> 末行模式。<br>模式转换如下图：<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210128110334.png"></li></ul><span id="more"></span><h1 id="vim基础操作"><a href="#vim基础操作" class="headerlink" title="vim基础操作"></a>vim基础操作</h1><p>vim是从 vi 发展出来的一个文本编辑器 。代码补完、编译及错误跳转等方便编程的功能特别丰富</p><p>进入插入模式:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">i: 插入光标前一个字符 </span><br><span class="line"></span><br><span class="line">I: 插入行首 </span><br><span class="line"></span><br><span class="line">a: 插入光标后一个字符 </span><br><span class="line"></span><br><span class="line">A: 插入行未 </span><br><span class="line"></span><br><span class="line">o: 向下新开一行,插入行首 </span><br><span class="line"></span><br><span class="line">O: 向上新开一行,插入行首</span><br></pre></td></tr></table></figure><p>进入命令模式:</p><p>ESC:从插入模式或末行模式进入命令模式</p><p>移动光标:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">h: 左移 </span><br><span class="line"></span><br><span class="line">j: 下移 </span><br><span class="line"></span><br><span class="line">k: 上移 </span><br><span class="line"></span><br><span class="line">l: 右移</span><br><span class="line"></span><br><span class="line">M: 光标移动到中间行 </span><br><span class="line"></span><br><span class="line">L: 光标移动到屏幕最后一行行首 </span><br><span class="line"></span><br><span class="line">G: 移动到指定行,行号 -G</span><br><span class="line"></span><br><span class="line">w: 向后一次移动一个字 </span><br><span class="line"></span><br><span class="line">b: 向前一次移动一个字</span><br><span class="line"></span><br><span class="line">&#123;: 按段移动,上移 </span><br><span class="line"></span><br><span class="line">&#125;: 按段移动,下移</span><br><span class="line"></span><br><span class="line">Ctrl+d: 向下翻半屏 </span><br><span class="line"></span><br><span class="line">Ctrl+u: 向上翻半屏</span><br><span class="line"></span><br><span class="line">Ctrl+f: 向下翻一屏 </span><br><span class="line"></span><br><span class="line">Ctrl+b: 向上翻一屏</span><br><span class="line"></span><br><span class="line">gg: 光标移动文件开头 </span><br><span class="line"></span><br><span class="line">G: 光标移动到文件末尾</span><br></pre></td></tr></table></figure><p>删除命令:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">x: 删除光标后一个字符,相当于 Del </span><br><span class="line"></span><br><span class="line">X: 删除光标前一个字符,相当于 Backspace</span><br><span class="line"></span><br><span class="line">dd: 删除(相当于剪切)光标所在行,n dd 删除指定的行数 D: 删除光标后本行所有内容,包含光标所在字符 </span><br><span class="line"></span><br><span class="line">d0: 删除光标前本行所有内容,不包含光标所在字符</span><br><span class="line"></span><br><span class="line">dw: 删除光标开始位置的字,包含光标所在字符</span><br></pre></td></tr></table></figure><p>撤销命令:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">u: 一步一步撤销 </span><br><span class="line">Ctr-r: 反撤销</span><br></pre></td></tr></table></figure><p>重复命令:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.: 重复上一次操作的命令</span><br></pre></td></tr></table></figure><p>文本行移动:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;: 文本行右移 </span><br><span class="line"></span><br><span class="line">&lt;&lt;: 文本行左移</span><br></pre></td></tr></table></figure><p>复制粘贴:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">v: 按字符移动,选中文本 </span><br><span class="line"></span><br><span class="line">V: 按行移动,选中文本可视模式可以配合 d, y, &gt;&gt;, &lt;&lt; 实现对文本块的删除,复制,左右移动</span><br></pre></td></tr></table></figure><p>查找命令:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;: str查找</span><br><span class="line">n: 下一个</span><br><span class="line">N：上一个</span><br></pre></td></tr></table></figure><p>可视模式:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">v: 按字符移动,选中文本 </span><br><span class="line">V: 按行移动,选中文本可视模式可以配合 d, y, &gt;&gt;, &lt;&lt; 实现对文本块的删除,复制,左右移动</span><br></pre></td></tr></table></figure><p>替换操作:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">r: 替换当前字符 </span><br><span class="line">R: 替换当前行光标后的字符</span><br></pre></td></tr></table></figure><p>替换命令：把abc全部替换成123</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">末行模式下，将当前文件中的所有abc替换成123:%s&#x2F;abc&#x2F;123&#x2F;g</span><br><span class="line">末行模式下，将第一行至第10行之间的abc替换成123:1, 10s&#x2F;abc&#x2F;123&#x2F;g</span><br></pre></td></tr></table></figure><p> 注意：<br>vim里执行 shell 下命令:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">末行模式里输入!,后面跟命令</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Fiddler抓包详解</title>
+      <link href="2021/01/11/Fiddler/"/>
+      <url>2021/01/11/Fiddler/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Fiddler详解"><a href="#Fiddler详解" class="headerlink" title="Fiddler详解"></a>Fiddler详解</h1><ul><li><p>首先说下何为抓包，抓包，简单来说就是抓取数据包，抓包（packet capture）就是将网络传输发送与接收的数据包进行截获、重发、编辑、转存等操作，也用来检查网络安全。抓包也经常被用来进行数据截取等（官方解释），大概就是抓取所需数据包来做一些特定的分析，比如说有的爬虫需要抓包分析。</p></li><li><p>Fiddler是一个http协议调试代理工具，它能够记录并检查所有你的电脑和互联网之间的HTTP或HTTPS通讯，设置断点，查看所有的进出Fiddler的数据。 Fiddler 要比其他的网络调试器要更加简单，因为它不仅仅暴露HTTP通讯还提供了一个用户友好的格式。同时也是目前最常用的抓包工具之一 。它能够记录客户端和服务器之间的所有请求,可以针对特定的请求,分析请求数据等功能，十分强大。<br>接下来直接进入正题，我们首先需要去<a href="https://www.telerik.com/fiddler">官网</a>下载Fiddler安装包。</p></li></ul><p>安装完成之后打开就可以看到这样一个界面<img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127134817.png"></p><span id="more"></span><h1 id="Web抓包"><a href="#Web抓包" class="headerlink" title="Web抓包"></a>Web抓包</h1><p>在web抓包之前我们需要配置下实现https抓包，我们进入Tools-&gt;Options-&gt;Connections，之后<br>按下图打勾，<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127134837.png"></p><p>之后再进入HTTPS下，按下图操作，<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127134851.png"></p><p>之后打开网页便可成功抓取http和https的数据包,如下图<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127134907.png"></p><h1 id="app抓包"><a href="#app抓包" class="headerlink" title="app抓包"></a>app抓包</h1><p>app抓包我们需要保证电脑与手机连接同一个Wi-Fi，之后我们设置Wi-Fi的代理，操作流程：设置-&gt;WLAN-&gt;Wi-Fi右面的箭头-&gt;选择手动代理，主机名改为本地IP地址，端口号为8888，与Fiddler相同，之后我们在手机打开应用即可抓取，这里我打开网易云音乐操作下<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127134925.png"></p><p>可以看到，抓取成功了.</p><p>这里可以看到此时抓取的数据包都是HTTP协议相关包，接下来在抓取HTTPS包之前我们需要进行配置，在我们的手机浏览器中进入本机ip地址:8888/，进入到下面的页面后我们点击下方的FiddleRoot certificate,<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127135129.png"></p><p>下载证书安装包，安装完成后即可抓取HTTPS数据包了。</p><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127135145.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 抓包 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Python爬虫实战-爬取小说</title>
+      <link href="2021/01/06/spider/"/>
+      <url>2021/01/06/spider/</url>
+      
+        <content type="html"><![CDATA[<h1 id="模块的安装"><a href="#模块的安装" class="headerlink" title="模块的安装"></a>模块的安装</h1><p>首先这里我们用到了requests库和BeautifulSoup库，我们可以通过pip命令来安装</p><ul><li>requests库的安装</li></ul><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure><ul><li>BeautifulSoup库的安装</li></ul><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install beautifulsoup4</span><br></pre></td></tr></table></figure><p>之后我们通过requests中的get方法获得网页的源代码</p><h1 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a>代码编写</h1><span id="more"></span><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">headers &#x3D; &#123;</span><br><span class="line">    &#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 10.0; WOW64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;65.0.3325.181 Safari&#x2F;537.36&#39;</span><br><span class="line">    &#125;</span><br><span class="line">r &#x3D; requests.get(&quot;http:&#x2F;&#x2F;book.zongheng.com&#x2F;store&#x2F;c0&#x2F;c0&#x2F;b0&#x2F;u0&#x2F;p0&#x2F;v9&#x2F;s9&#x2F;t0&#x2F;u0&#x2F;i1&#x2F;ALL.html&quot;,headers&#x3D;headers)</span><br><span class="line"></span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure><p>通过分析得到对应的类，<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127134605.png"><br>通过地址栏分析得到每次翻页的时候都是网站链接中的p0在改变，所以可以定义一个循环，这里我们先爬前100的信息</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for x in range(0,101):</span><br><span class="line">   print(x)</span><br><span class="line">   url &#x3D; &quot;http:&#x2F;&#x2F;book.zongheng.com&#x2F;store&#x2F;c0&#x2F;c0&#x2F;b0&#x2F;u0&#x2F;p%x&#x2F;v9&#x2F;s9&#x2F;t0&#x2F;u0&#x2F;i1&#x2F;ALL.html&quot; % x</span><br></pre></td></tr></table></figure><p>之后将其保存到文件中，利用open方法</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">with open(&quot;小说信息.txt&quot;, &quot;a&quot;, encoding&#x3D;&quot;utf-8&quot;) as f:</span><br><span class="line">f.write(books)</span><br></pre></td></tr></table></figure><p>，到此便大功告成,这里只是提供一个大概的思路，具体的步骤还是要大家来学习的</p><p>最后附上完整代码：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import time</span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line">def get_content(url,headers):</span><br><span class="line">    r &#x3D; requests.get(url, headers&#x3D;headers)</span><br><span class="line">    soup &#x3D; BeautifulSoup(r.text, &quot;lxml&quot;)</span><br><span class="line">    time.sleep(3)</span><br><span class="line">    bookinfo &#x3D; soup.find_all(&quot;div&quot;, class_&#x3D;&quot;bookinfo&quot;)</span><br><span class="line">    for x in bookinfo:</span><br><span class="line">        print(&#39;*&#39;*30)</span><br><span class="line">        bookname &#x3D; x.find(&quot;a&quot;).text</span><br><span class="line">        book_zuozhe &#x3D; x.find(&quot;div&quot;, class_&#x3D;&quot;bookilnk&quot;).find(&quot;a&quot;).text</span><br><span class="line">        book_time &#x3D; x.find(&quot;div&quot;, class_&#x3D;&quot;bookilnk&quot;).find_all(&quot;span&quot;)[1].text</span><br><span class="line">        book_title &#x3D; x.find(&quot;div&quot;, class_&#x3D;&quot;bookintro&quot;).text</span><br><span class="line">        print(&quot;名字：&quot;, bookname)</span><br><span class="line">        print(&quot;作者：&quot;, book_zuozhe)</span><br><span class="line">        print(&quot;简介：&quot;, book_title)</span><br><span class="line">        print(&quot;状态：&quot;, book_time)</span><br><span class="line">        books &#x3D;  &quot;名字：&quot;+ bookname + &quot;作者：&quot; + book_zuozhe + &quot;简介：&quot; + book_title + &quot;状态：&quot; + book_time</span><br><span class="line">        with open(&quot;信息.txt&quot;, &quot;a&quot;, encoding&#x3D;&quot;utf-8&quot;) as f:</span><br><span class="line">            f.write(books)</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    headers &#x3D; &#123;</span><br><span class="line">        &#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 10.0; WOW64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko)Chrome&#x2F;65.0.3325.181 Safari&#x2F;537.36&#39;</span><br><span class="line">        &#125;</span><br><span class="line">    for x in range(0,101):</span><br><span class="line"></span><br><span class="line">        print(x)</span><br><span class="line">        url &#x3D; &quot;http:&#x2F;&#x2F;book.zongheng.com&#x2F;store&#x2F;c0&#x2F;c0&#x2F;b0&#x2F;u0&#x2F;p%x&#x2F;v9&#x2F;s9&#x2F;t0&#x2F;u0&#x2F;i1&#x2F;ALL.html&quot; % x</span><br><span class="line">        #print(url)</span><br><span class="line">        get_content(url, headers)</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 爬虫 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>分享一个图形数据库Neo4j</title>
+      <link href="2021/01/01/Neo4j/"/>
+      <url>2021/01/01/Neo4j/</url>
+      
+        <content type="html"><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Neo4j是一个高性能的,NOSQL图形数据库，它将结构化数据存储在网络上而不是表中。它是目前最流行的图形数据库，支持完整的事务，在属性图中，图是由顶点（Vertex），边（Edge）和属性（Property）组成的，Neo4j创建的图是用顶点和边构建一个有向图，其查询语言为cypher。</p><p>Neo4j是由Java和Scala写成的一个NoSql数据库（非关系型的数据库），所以决定了此数据库是依托于jvm虚拟机上的，它专门用于网络图的存储，如思维导图等。<br>  与MySql相比，Neo4j有以下优点：</p><ul><li>数据库操作更快。对比之下，当数据量较大时，在MySql中存储的话需要许多表，并且表之间联系较多。</li><li>数据更直观，相应的SQL语句也更好写（Neo4j使用Cypher语言，与传统SQL语句有很大不同）。<span id="more"></span></li><li>更灵活。不管有什么数据存储，都是一律的节点和边，只需要考虑节点属性和边属性。而MySql中即意味着新的表，还要考虑表与表之间的关系，复杂许多。</li><li>数据库操作的速度并不会随着数据库的增大有明显的降低。这得益于Neo4j特殊的数据存储结构和专门优化的图算法。<br>具体安装w3c上面有教程，官网也可以参考，就不在这里赘述了。<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127131838.png"></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Markdown基本语法</title>
+      <link href="2020/12/26/markdown/"/>
+      <url>2020/12/26/markdown/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一-Markdown介绍"><a href="#一-Markdown介绍" class="headerlink" title="一.Markdown介绍"></a>一.Markdown介绍</h1><p>​    今天给大家介绍一下Markdown及其基本语法。Markdown是一种<a href="https://baike.baidu.com/item/%E8%BD%BB%E9%87%8F%E7%BA%A7%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/52671915">轻量级标记语言</a>。 它允许人们使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML（或者HTML）文档。这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。</p><p>​    由于Markdown的轻量化、易读易写特性，并且对于图片，图表、数学式都有支持，目前许多网站都广泛使用Markdown来撰写帮助文档或是用于论坛上发表消息。 如<a href="https://baike.baidu.com/item/GitHub/10145341">GitHub</a>、<a href="https://baike.baidu.com/item/Reddit/1272010">Reddit</a>、<a href="https://baike.baidu.com/item/Diaspora/10726893">Diaspora</a>、[Stack Exchange](<a href="https://baike.baidu.com/item/Stack">https://baike.baidu.com/item/Stack</a> Exchange/13777796)、<a href="https://baike.baidu.com/item/OpenStreetMap/3171606">OpenStreetMap</a> 、<a href="https://baike.baidu.com/item/SourceForge/6562141">SourceForge</a>、<a href="https://baike.baidu.com/item/%E7%AE%80%E4%B9%A6/5782216">简书</a>等，甚至还能被使用来撰写<a href="https://baike.baidu.com/item/%E7%94%B5%E5%AD%90%E4%B9%A6/346054">电子书</a>。</p><h1 id="二-Markdown基本语法"><a href="#二-Markdown基本语法" class="headerlink" title="二.Markdown基本语法"></a>二.Markdown基本语法</h1><span id="more"></span><h2 id="①标题"><a href="#①标题" class="headerlink" title="①标题"></a>①标题</h2><p>在文字前面加#就可以将其设定为标题。<br>加一个#是一级标题，加两个#是二级标题，以此类推。最多支持六级标题。（注：输入完文字后回车会自动变成标题）</p><p>示例：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br></pre></td></tr></table></figure><h2 id="②字体"><a href="#②字体" class="headerlink" title="②字体"></a>②字体</h2><ul><li><p>加粗</p><p>要加粗的文字左右分别加两个*号，或者用快捷键ctrl + B(注：本文快捷键都是基于Typora软件)</p></li><li><p>斜体</p><p>要倾斜的文字左右分别加一个*号，或者用快捷键ctrl + I</p></li><li><p>斜体加粗</p><p>要倾斜和加粗的文字左右分别加三个*号，或者用快捷键ctrl + I + B</p></li><li><p>删除线</p><p>要加删除线的文字左右分别加两个~~（波浪号）号，或者用快捷键Alt + shift + 5(字符键区)</p></li></ul><h2 id="③引用"><a href="#③引用" class="headerlink" title="③引用"></a>③引用</h2><p> 要引用的文字前面加一个 &gt; (大于号)，同时可以加多个&gt;号实现多层 引用</p><p>示例：</p><blockquote><p>这是引用的内容</p><blockquote><p>这是第二层的引用</p></blockquote></blockquote><h2 id="④分割线"><a href="#④分割线" class="headerlink" title="④分割线"></a>④分割线</h2><p> 三个或者三个以上的 - 或者 * 。</p><hr><h2 id="⑤图片"><a href="#⑤图片" class="headerlink" title="⑤图片"></a>⑤图片</h2><p> 如下面图片所，首先输入![]，填好图片名称，输入()，就会自动要求 输入图片地址。</p><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/img.png"></p><h2 id="⑥超链接"><a href="#⑥超链接" class="headerlink" title="⑥超链接"></a>⑥超链接</h2><p> 示例：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[点击跳转到百度](www.baidu.com)</span><br></pre></td></tr></table></figure><p><a href="https://xxgspeed.gitee.io/music/">点击跳转</a></p><h2 id="⑦列表"><a href="#⑦列表" class="headerlink" title="⑦列表"></a>⑦列表</h2><p> 有序列表：输入1.按空格，之后按回车可以递增。</p><p> 示例：</p><ol><li>有序列表1</li><li>有序列表2</li><li>有序列表3</li></ol><p> 无序列表：输入-按空格，之后按回车可以递增。</p><p> 示例：</p><ul><li>无序列表1</li><li>无序列表2</li><li>无序列表3</li></ul><h2 id="⑧表格"><a href="#⑧表格" class="headerlink" title="⑧表格"></a>⑧表格</h2><p> 示例：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">姓名|性别|生日</span><br><span class="line">--|--|--|</span><br><span class="line">张三|男|2000.3.3</span><br></pre></td></tr></table></figure><p> 效果如下：</p><table><thead><tr><th>姓名</th><th>性别</th><th>生日</th></tr></thead><tbody><tr><td>张三</td><td>男</td><td>2000.3.3</td></tr></tbody></table><h2 id="⑨-代码"><a href="#⑨-代码" class="headerlink" title="⑨ 代码"></a>⑨ 代码</h2><p> 语法：<br> 单行代码：代码之间分别用一个反引号（在esc键下面）包起来</p><p><code>print(&quot;hello&quot;)</code></p><p> 代码块：代码之间分别用三个反引号</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">print(&quot;hello&quot;)</span><br><span class="line">print(&quot;world&quot;)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Markdown </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>基于JavaMail库实现邮件的简单传送</title>
+      <link href="2020/12/15/javamail/"/>
+      <url>2020/12/15/javamail/</url>
+      
+        <content type="html"><![CDATA[<h1 id="常用的电子邮件协议"><a href="#常用的电子邮件协议" class="headerlink" title="常用的电子邮件协议"></a>常用的电子邮件协议</h1><ul><li>SMTP（Simple Mail Transfer Protocol-简单邮件传输协议）：发送邮件时使用，传输系统之间的邮件信息，端口号25</li><li>POP3（Post Office Protocol 3-邮局协议版本3）：主要用于支持使用客户端远程管理在服务器上的电子邮件，支持“离线”（如本地删除邮件但服务器不会被删除）邮件处理，收取离线邮件，客户端远程管理电子邮件，端口号110</li><li>IMAP（Internet Mail Access Protocol-交互邮件访问协议）：从邮件服务器上获取邮件的信息，同步（本地与服务器的操作时同步）收取邮件，端口号143</li></ul><hr><h1 id="Jar包下载"><a href="#Jar包下载" class="headerlink" title="Jar包下载"></a>Jar包下载</h1><p>因为标准的JDK中并没有包含javamail库，需要自己去官网下载，从JavaMail 1.5.0开始，可以从GitHub上的<a href="https://javaee.github.io/javamail/">JavaMail项目页面</a>获得最新的JavaMail版本，我们只需要下载javamail的jar包即可。<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127131322.png"></p><span id="more"></span><p>之后创建项目将jar包导入通过右键中的Build Path实现<img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127131359.png"></p><h1 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a>代码编写</h1><p>代码实现基于Session会话和MimeMessage邮件对象：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">   import java.io.FileOutputStream;</span><br><span class="line">   import java.util.Date;</span><br><span class="line">   import java.util.Properties;</span><br><span class="line">   import javax.mail.Address;</span><br><span class="line">   import javax.mail.Session;</span><br><span class="line">   import javax.mail.internet.InternetAddress;</span><br><span class="line">   import javax.mail.internet.MimeMessage;</span><br><span class="line">   import javax.mail.internet.MimeMessage.RecipientType;</span><br><span class="line"></span><br><span class="line">   public class Main &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws Exception &#123;&#x2F;&#x2F;抛出异常</span><br><span class="line">&#x2F;&#x2F; TODO Auto-generated method stub</span><br><span class="line">Properties configProperties&#x3D;new Properties();</span><br><span class="line">Session session&#x3D;Session.getInstance(configProperties);&#x2F;&#x2F;邮件的配置信息</span><br><span class="line">&#x2F;&#x2F;创建邮件对象</span><br><span class="line">MimeMessage m&#x3D;new MimeMessage(session);</span><br><span class="line">&#x2F;&#x2F;设置发件人</span><br><span class="line">Address from&#x3D;new InternetAddress(&quot;cyl810club@163.com&quot;,&quot;啦啦啦&quot;,&quot;utf-8&quot;); </span><br><span class="line">m.setFrom(from);</span><br><span class="line">&#x2F;&#x2F;设置收件人</span><br><span class="line">m.setRecipient(RecipientType.TO, new InternetAddress(&quot;719837496@qq.com&quot;));</span><br><span class="line">&#x2F;&#x2F;邮件的主题</span><br><span class="line">m.setSubject(&quot;测试&quot;,&quot;utf-8&quot;);</span><br><span class="line">&#x2F;&#x2F;邮件正文</span><br><span class="line">m.setContent(&quot;啦啦测试内容啦&quot;,&quot;text&#x2F;plain;charset&#x3D;utf-8&quot;);</span><br><span class="line">&#x2F;&#x2F;发送时间</span><br><span class="line">m.setSentDate(new Date());</span><br><span class="line">&#x2F;&#x2F;确认设置完毕</span><br><span class="line">m.saveChanges();</span><br><span class="line">&#x2F;&#x2F;保存到本地</span><br><span class="line">FileOutputStream outputStream&#x3D;new FileOutputStream(&quot;d:&#x2F;file.eml&quot;);</span><br><span class="line">m.writeTo(outputStream);</span><br><span class="line">outputStream.close();</span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure><p>运行后，在d盘根目录便会出现file.eml格式的文件<img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127131431.png"><br>双击利用邮件客户端打开后就会显示出邮件的格式<img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127131454.png"><br>当我们利用记事本打开的时候就会发现它是这样的<img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127131516.png"><br>其实简单来说，邮件就是一串文本，期间通过代码解析转码等转成我们所常见的邮件。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> smtp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>分享一个高清壁纸的网站</title>
+      <link href="2020/12/04/photo/"/>
+      <url>2020/12/04/photo/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一个高清壁纸网站的食用方法"><a href="#一个高清壁纸网站的食用方法" class="headerlink" title="一个高清壁纸网站的食用方法"></a>一个高清壁纸网站的食用方法</h1><p>超过3000万张免费高清图片 </p><p><a href="https://wallhaven.cc/">链接如下</a></p><hr><p>最后附上几张高清大图</p><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127130635.png"></p><span id="more"></span><p>有各种分类可以自由选择</p><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127130731.png"><br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127130754.png"></p><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> 壁纸 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Python树莓派的安装与启动</title>
+      <link href="2020/11/20/python/"/>
+      <url>2020/11/20/python/</url>
+      
+        <content type="html"><![CDATA[<h2 id="需要准备的东西"><a href="#需要准备的东西" class="headerlink" title="需要准备的东西"></a>需要准备的东西</h2><ul><li>树莓派官方套餐一个</li><li>HDMI3.5寸屏幕一个</li></ul><p>一般的官方套餐中SD卡中会自带烧录好的系统，因为库存不够了，我的是一张闪存卡需要自己烧录<br>接下来进官网下载了可以远程登陆的系统版本<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127124700.png" alt="system"></p><span id="more"></span><p>之后便是按照官网给的步骤操作了，这里就不赘述了，在闪存卡里烧录好后接下来就是启动配置树莓派<br>为了操作方便先把HDMI屏与树莓派连上</p><h1 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h1><!--more--><p><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127124806.png"><br>之后通过sudo命令开启SSH服务<img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127124836.png"><br>为了方便，利用windows系统自带的mstsc服务开启远程登陆<img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127124853.png"><br>到此还算顺利，SSH服务成功开启（欲知更详细得步骤请自行百度，在这就不介绍了）<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127124910.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 分享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>

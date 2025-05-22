@@ -1,0 +1,377 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Linux常用命令之基本操作 | Real0 - Blog</title><meta name="keywords" content="分享"><meta name="author" content="Real0"><meta name="copyright" content="Real0"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Linux常用命令最近看了点关于linux的常用命令总结，在这里回顾下 Linux是多用户多任务的操作系统，而相比windows操作系统，可以说是“假”的多用户了，它实际上并不支持多个用户在同一时间登录。 Linux命令格式 command  [-options]  [parameter1]  … command: 命令名,相应功能的英文单词或单词的缩写 [-options]：选项,可用来对命令进">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux常用命令之基本操作">
+<meta property="og:url" content="http://example.com/2021/03/01/command/index.html">
+<meta property="og:site_name" content="Real0 - Blog">
+<meta property="og:description" content="Linux常用命令最近看了点关于linux的常用命令总结，在这里回顾下 Linux是多用户多任务的操作系统，而相比windows操作系统，可以说是“假”的多用户了，它实际上并不支持多个用户在同一时间登录。 Linux命令格式 command  [-options]  [parameter1]  … command: 命令名,相应功能的英文单词或单词的缩写 [-options]：选项,可用来对命令进">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/88gg7.jpg">
+<meta property="article:published_time" content="2021-03-01T08:46:00.000Z">
+<meta property="article:modified_time" content="2021-03-06T09:33:03.747Z">
+<meta property="article:author" content="Real0">
+<meta property="article:tag" content="分享">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/88gg7.jpg"><link rel="shortcut icon" href="/img/favicon1.png"><link rel="canonical" href="http://example.com/2021/03/01/command/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Real0","link":"链接: ","source":"来源: Real0 - Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-03-06 17:33:03'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Real0 - Blog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210129111612.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heartbeat"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page" href="/talk/"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 更多</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" target="_blank" rel="noopener" href="https://share.520us.club"><i class="fa-fw fas fa-download"></i><span> 我的网盘</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/xxgspeed/images/img/88gg7.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Real0 - Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heartbeat"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page" href="/talk/"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 更多</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" target="_blank" rel="noopener" href="https://share.520us.club"><i class="fa-fw fas fa-download"></i><span> 我的网盘</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux常用命令之基本操作</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2021-03-01T08:46:00.000Z" title="undefined 2021-03-01 16:46:00">2021-03-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h1><p>最近看了点关于linux的常用命令总结，在这里回顾下</p>
+<p>Linux是多用户多任务的操作系统，而相比windows操作系统，可以说是“假”的多用户了，它实际上并不支持多个用户在同一时间登录。</p>
+<h1 id="Linux命令格式"><a href="#Linux命令格式" class="headerlink" title="Linux命令格式"></a>Linux命令格式</h1><hr>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">command  [-options]  [parameter1]  …</span><br></pre></td></tr></table></figure>
+<p>command: 命令名,相应功能的英文单词或单词的缩写 [-options]：选项,可用来对命令进行控制，也可以省略，[]代表可选 parameter1 …：传给命令的参数：可以是零个一个或多个</p>
+<ul>
+<li>ls 列出当前目录的内容</li>
+</ul>
+<p><em>参数解释：</em><br>可显示指定目录下所有的子目录与文件，包括隐藏文件（以点（.）开头的文件），如ls -a</p>
+<ul>
+<li>ls -l :<br>以列表方式显示文件的详细信息，包含权限，大小，硬链接数等信息</li>
+<li>ls -h :与-l同时使用以更人性化方式显示文件信息<span id="more"></span>
+注意点:</li>
+</ul>
+<p> ① 可用ls -lah直接使用三个参数，lah不分顺序<br> ② ls -la 可用更为简单的命令ll替代</p>
+<ul>
+<li>pwd 显示当前工作目录</li>
+<li>touch xxxx(文件名包括拓展名) 可创建文件</li>
+<li>mkdir 创建文件夹<br>通过mkdir命令可以创建一个新的目录。参数-p可递归创建目录。需要注意的是新建目录的名称不能与当前目录中已有的目录或文件同名，并且目录创建者必须对当前目录具有写权限。</li>
+<li>rmdir<br> 可使用rmdir命令删除一个目录。限制：必须当前不在此目录，并且目录必须为空目录，不然提示删除失败。</li>
+<li>rm xxxx(文件名包括拓展名) 可删除文件</li>
+</ul>
+<p> ①无参数：如 rm 文件名，只能删除文件</p>
+<p> ②-r：<br>递归地删除目录下的内容，删除文件夹时必加参数,如rm A -r</p>
+<p> ③-f：强制删除，忽略不存在的文件，无需提示,如rm A -f</p>
+<ul>
+<li>gedit 文件名 编辑文件</li>
+<li>cat 查看或者合并文件内容，内容结果在终端显示，如cat 1.txt<br>另一种用法，cat 1.txt 2.txt &gt;（或&gt;&gt;） 3.txt,将前两个文件的内容重定向到3.txt中</li>
+<li>history 查看历史命令，或按上下键可切换<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127132403.png"><br>可使用！加编号便可实现命令，如使用！111则可实现ls命令</li>
+<li>重定向 &gt; 即将文件内容保存到另一个文件中<br>如ls &gt; xxx.txt，即ls输出的内容会被保存到xxx.txt中</li>
+</ul>
+<p> 注意点：<br>① &gt; 输出重定向会覆盖文件原来的内容。<br>② &gt;&gt; 输出重定向时则会追加到原文件的尾部。</p>
+<ul>
+<li>more 分屏命令，如 more 文件名 可分屏查看，按f向前翻一页，按b向后翻一页,按Ctrl + C退出</li>
+<li> | 管道，一个命令的输出可通过管道做为另一个命令的输入，管道充当了暂时存储前一个命令信息的任务<br>如，ls -lh | more，首先把ls -lh的输出内容放到管道中，然后再从管道中取出供more使用显示</li>
+<li>clear 清屏操作</li>
+<li>cd 用于切换当前工作目录至指定目录</li>
+</ul>
+<p>  （1）<br>‘.’一个点代表当前路径，如cd ./</p>
+<p> （2）<br>‘..’两个点代表上一层路径，如cd ../</p>
+<p> （3）<br>“../..”<br>代表上一路径的上一路径（相对路径），如cd ../..</p>
+<p> （4）<br>“-“<br>跳回上次所在路径，若再使用，跳回本次路径（只能记录一次路径），如cd -<br>如下图<br><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210127132709.png"><br> （5）<br>“~”<br>进入家目录，如cd ~</p>
+<ul>
+<li>Ctrl + C 不执行当前命令</li>
+<li>tree 生成目录树，需要自己安装包</li>
+<li>mv 重命名，如mv 1.txt 2.txt，另一种用法mv 1.txt folder 可将1.txt文件移动到文件夹folder中</li>
+<li>ln 创建快捷方式<br> Linux链接文件类似于Windows下的快捷方式,链接文件分为软链接和硬链接。<br> 软链接与硬链接区别：软链接不占用磁盘空间，源文件删除则软链接失效，硬链接无影响，硬链接只能链接普通文件，不能链接目录。<br>使用格式：</li>
+</ul>
+<p> ①无参数：<br>如 ln 1.txt hard.txt(硬链接文件)</p>
+<p> ②-s：如 ln -s 1.txt hard.txt(软链接文件)</p>
+<ul>
+<li>grep 文本搜索<br>一般格式为：<br> grep [-选项] ‘搜索内容串’ 文件名<br>如:grep “st” xxx.txt,即在xxx.txt中查找字符串”st”<br> grep “^ntfs” xxx.txt，即查找以ntfs开头的文件名,类似于正则</li>
+</ul>
+<p> ①-v：<br>显示不包含匹配文本的所有行（相当于求反）</p>
+<p> ②-n：<br>显示匹配行及行号</p>
+<p> ③ -l：<br>忽略大小写</p>
+<ul>
+<li>cp 拷贝文件<br>cp命令的功能是将给出的文件或目录复制到另一个文件或目录中，相当于DOS下的copy命令。<br>常用选项说明：</li>
+</ul>
+<p> ①-r：<br>若给出的源文件是目录文件，则cp将递归复制该目录下的所有子目录和文件，目标文件必须为一个目录名。</p>
+<p> ②-v：<br>显示拷贝进度</p>
+<ul>
+<li>find  查找文件<br>常用用法：</li>
+</ul>
+<p> ①”./ -name test.txt”：<br>查找当前目录下所有名为test.txt的文件</p>
+<p> ②”./ -name ‘*.sh’”：<br>查找当前目录下所有后缀为.sh的文件</p>
+<p> ③”/tmp -size 2M”：<br>查找在/tmp 目录下等于2M的文件</p>
+<p> ④”/tmp -size +(-)2M”：<br>查找在/tmp 目录下大于(小于)2M的文件</p>
+<p> ⑤”./ -size +4k -size -5M”：<br>查找当前目录下大于4k，小于5M的文件</p>
+<ul>
+<li>tar 归档管理<br>tar使用格式 tar [参数] 打包文件名 文件<br> tar命令很特殊，其参数前面可以使用“-”，也可以不使用。</li>
+</ul>
+<p> ①”-cvf(打包) / -xvf(解包)”：<br>tar -cvf test.tar *.py 将py文件打包<br>tar -xvf test.tar 解压到当前路径</p>
+<p> ②”-zcvf(压缩) / -zxvf(解压缩)”：<br>tar -zcvf test.tar.gz *.py 将py文件压缩；<br>tar -zxvf test.tar.gz 解压到当前路径  ；<br>tar -zxvf test.tar.gz -C 目录名  解压到指定路径<br> ③”-jcvf(压缩) / -jxvf(解压缩)”：<br>tar -jcvf test.tar.bz2 *.py 将py文件压缩(容量压缩比.gz文件大一点)；<br>tar -jxvf test.tar.bz2 解压到当前路径  </p>
+<ul>
+<li>zip压缩包<br> zip xxx.zip *.py(压缩)<br> unzip xxx.zip(解压缩)<br> unzip -d ./test xxx.zip(解压缩到指定路径)</li>
+</ul>
+<p> <em>注意：</em><br>    压缩容量排行 : gz&lt;bz2&lt;zip</p>
+<ul>
+<li>which 查看命令位置，如: which ls</li>
+<li>cal 查看日历，-y显示整年日历，如: cal -y 2019</li>
+<li>date 显示或设置时间</li>
+</ul>
+<p>参数：</p>
+<p> ①<br>“%Y，%y”：年</p>
+<p>②<br>“%m”：月</p>
+<p>③<br>“%d”：日</p>
+<ul>
+<li>ps 查看进程信息，无参数时表示只查看当前终端的信息<br> ps -aux 查看所有进程信息</li>
+<li>top 动态显示当前进程</li>
+<li>kill 可结束进程，需要配合 ps 使用<br>如：kill 9130，9133 为应用程序所对应的进程号（通过ps命令查看）</li>
+<li>reboot 重新启动操作系统<br> shutdown -P now 立刻关闭操作系统<br> shutdown -P +10 10分钟后关闭操作系统</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://gitee.com/real0">Real0</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://real0.gitee.io/2021/03/01/command/">https://real0.gitee.io/2021/03/01/command/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自<a target="_blank" rel="noopener" href="https://real0.gitee.io/">Real0 - Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%88%86%E4%BA%AB/">分享</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/88gg7.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/wechat.png" target="_blank"><img class="post-qr-code-img" src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/alipay.png" target="_blank"><img class="post-qr-code-img" src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/03/06/Jquery/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/3x555.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">jQuery 学习笔记</div></div></a></div><div class="next-post pull-right"><a href="/2021/02/26/speed/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/ovm.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">分享一个谷歌浏览器的视频加速插件</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/01/11/Fiddler/" title="Fiddler抓包详解"><img class="cover" src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/dgwm.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-11</div><div class="title">Fiddler抓包详解</div></div></a></div><div><a href="/2021/01/26/Files/" title="分享一个现代化文件管理器Files"><img class="cover" src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/3m93.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-26</div><div class="title">分享一个现代化文件管理器Files</div></div></a></div><div><a href="/2021/01/31/Hexo/" title="Hexo + Gitee 搭建博客"><img class="cover" src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/4ywjxl.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-31</div><div class="title">Hexo + Gitee 搭建博客</div></div></a></div><div><a href="/2021/03/06/Jquery/" title="jQuery 学习笔记"><img class="cover" src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/3x555.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-06</div><div class="title">jQuery 学习笔记</div></div></a></div><div><a href="/2021/01/01/Neo4j/" title="分享一个图形数据库Neo4j"><img class="cover" src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/pwx.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-01</div><div class="title">分享一个图形数据库Neo4j</div></div></a></div><div><a href="/2021/02/16/Nginx/" title="【学相伴】Nginx最新教程通俗易懂-狂神说"><img class="cover" src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/wo.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-16</div><div class="title">【学相伴】Nginx最新教程通俗易懂-狂神说</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/20210129111612.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Real0</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">岂能尽如人意,但求无愧于心!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">Linux常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">Linux命令格式</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/03/06/Jquery/" title="jQuery 学习笔记"><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/3x555.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="jQuery 学习笔记"/></a><div class="content"><a class="title" href="/2021/03/06/Jquery/" title="jQuery 学习笔记">jQuery 学习笔记</a><time datetime="2021-03-06T11:36:00.000Z" title="发表于 2021-03-06 19:36:00">2021-03-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/01/command/" title="Linux常用命令之基本操作"><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/88gg7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux常用命令之基本操作"/></a><div class="content"><a class="title" href="/2021/03/01/command/" title="Linux常用命令之基本操作">Linux常用命令之基本操作</a><time datetime="2021-03-01T08:46:00.000Z" title="发表于 2021-03-01 16:46:00">2021-03-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/26/speed/" title="分享一个谷歌浏览器的视频加速插件"><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/ovm.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="分享一个谷歌浏览器的视频加速插件"/></a><div class="content"><a class="title" href="/2021/02/26/speed/" title="分享一个谷歌浏览器的视频加速插件">分享一个谷歌浏览器的视频加速插件</a><time datetime="2021-02-26T08:45:00.000Z" title="发表于 2021-02-26 16:45:00">2021-02-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/21/user/" title="Linux 常用命令之用户和权限管理"><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/8861j.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 常用命令之用户和权限管理"/></a><div class="content"><a class="title" href="/2021/02/21/user/" title="Linux 常用命令之用户和权限管理">Linux 常用命令之用户和权限管理</a><time datetime="2021-02-21T08:43:00.000Z" title="发表于 2021-02-21 16:43:00">2021-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/16/Nginx/" title="【学相伴】Nginx最新教程通俗易懂-狂神说"><img src="https://cdn.jsdelivr.net/gh/xxgspeed/images/img/wo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【学相伴】Nginx最新教程通俗易懂-狂神说"/></a><div class="content"><a class="title" href="/2021/02/16/Nginx/" title="【学相伴】Nginx最新教程通俗易懂-狂神说">【学相伴】Nginx最新教程通俗易懂-狂神说</a><time datetime="2021-02-16T08:40:00.000Z" title="发表于 2021-02-16 16:40:00">2021-02-16</time></div></div></div></div></div></div></main><footer id="footer" style="background: grey"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Real0</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://real0.gitee.io/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'q5M5KNEsxLgdRNdBC62Niu1P-MdYXbMMI',
+      appKey: 'ekDS2Eau4R7BNBUGIgyIN58q',
+      placeholder: '记得留下你的昵称和邮箱....可以快速收到回复',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      master: 'cf023744fb7baeb9c95d579f63fe9ec8'.split(','),
+      friends: ''.split(','),
+      tagMeta: '博主,小伙伴,访客'.split(','),
+      enableQQ: true,
+      path: window.location.pathname,
+    }
+
+    
+    
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="5480659835" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" muted></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  if (typeof gtag === 'function') {
+    gtag('config', '', {'page_path': window.location.pathname});
+  }
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
